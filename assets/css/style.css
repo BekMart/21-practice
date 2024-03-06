@@ -51,9 +51,26 @@ h1 {
 #opponent-hand-display-area,
 #player-hand-display-area {
     background-color: rgba(0, 0, 0, 0.5);
-    height: 200px;
-    width: 70%;
+    height: 25%;
+    max-height: 200px;
+    width: 85%;
+    max-width: 750px;
     margin: auto;
+    display: flex;
+    flex: row wrap;
+}
+
+/* The cards */
+.card {
+    /* background-image: url('../images/card-back-red.png'); */
+    /* background-position: center; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 5%;
+    width: 20em;
+    height: 5em;
+    max-height: 200px;
+    margin: 2%;
 }
 
 /* Player score area */
