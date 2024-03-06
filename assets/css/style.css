@@ -62,7 +62,8 @@ h1 {
 }
 
 /* The cards */
-#opponent-hand img {
+#opponent-hand img,
+#player-hand img {
     align-items: center;
     border-radius: 5%;
     width: auto;

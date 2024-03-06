@@ -52,11 +52,25 @@ function startGame() {
 
     //Deal opponent another card
     function addOpponentCard() {
-        let cardImg = document.createElement("img");
+        let cardImg = document.createElement("img"); //Create img element to host card
+        let card = deck.pop();//Select random card from shuffled deck
+        cardImg.src = "../assets/images/cards/" + card + ".png";//This is where the card files are located
+        opponentSum += getValue(card);//Calculates the sum of the opponents cards
+        opponentAceCount += checkAce(card);//Checks to see if the card is an ace
+        document.getElementById("opponent-hand").append(cardImg);//This is the location of where to place the selected card
+    }
+
+    //Deal player 2 cards
+    for (i = 0; i < 2; i++) {
+        let cardImg = document.createElement("img"); 
         let card = deck.pop();
         cardImg.src = "../assets/images/cards/" + card + ".png";
-        document.getElementById("opponent-hand").append(cardImg);
+        playerSum += getValue(card);
+        playerAceCount += checkAce(card);
+        document.getElementById("player-hand").append(cardImg);
     }
+
+    
 }
 
 //Will get the value of the card that is dealt
