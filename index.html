@@ -19,15 +19,11 @@
     <div id="game-area">
         <div id="opponent-side">
             <div id="opponent-score-area">
-                <p id="opponent-current-score">Opponent score(<span id="opponent-score">0</span>)</p>
-                <p id="opponent-game-score">Games won:<span id="opponent-games-won">0</span></p>
+                <p>Opponent score ( <span id="opponent-sum">0</span> )</p>
+                <p>Games won: <span id="opponent-games-won">0</span></p>
             </div>
-            <div id="opponent-hand-display-area">
-                <div class="card" id="opponent-card1"></div>
-                <div class="card" id="opponent-card2"></div>
-                <div class="card" id="opponent-card3"></div>
-                <div class="card" id="opponent-card4"></div>
-                <div class="card" id="opponent-card5"></div>
+            <div id="opponent-hand">
+                <img id="hidden" src="assets/images/back.png">
             </div>
         </div>
         <div id="game-controls">
@@ -36,16 +32,12 @@
             <button id="stay">Stay</button>
         </div>
         <div id="player-side">
-            <div id="player-hand-display-area">
-                <div class="card" id="player-card1"></div>
-                <div class="card" id="player-card2"></div>
-                <div class="card" id="player-card3"></div>
-                <div class="card" id="player-card4"></div>
-                <div class="card" id="player-card5"></div>
+            <div id="player-hand">
+                
             </div>
             <div id="player-score-area">
-                <p id="player-current-score">Player score (<span id="player-score">0</span>)</p>
-                <p id="player-game-score">Games won:<span id="player-games-won">0</span></p>
+                <p>Player score ( <span id="player-score">0</span> )</p>
+                <p>Games won: <span id="player-games-won">0</span></p>
             </div>
         </div>
     </div>

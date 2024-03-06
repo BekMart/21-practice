@@ -48,8 +48,8 @@ h1 {
 }
 
 /* Where the cards are dealt to for opponent and player (darker translucent box) */
-#opponent-hand-display-area,
-#player-hand-display-area {
+#opponent-hand,
+#player-hand {
     background-color: rgba(0, 0, 0, 0.5);
     height: 25%;
     max-height: 200px;
@@ -58,16 +58,15 @@ h1 {
     margin: auto;
     display: flex;
     flex: row wrap;
+    justify-content: center;
 }
 
 /* The cards */
-.card {
-    /* background-image: url('../images/card-back-red.png'); */
-    /* background-position: center; */
-    background-size: contain;
-    background-repeat: no-repeat;
+#opponent-hand img {
+    align-items: center;
     border-radius: 5%;
-    width: 20em;
+    width: auto;
+    max-width: 150px;
     height: 5em;
     max-height: 200px;
     margin: 2%;
@@ -75,7 +74,6 @@ h1 {
 
 /* Player score area */
 #player-score-area {
-    background-color: (207, 176, 6, 0.5);
     border: solid 2px #CFB006;
     text-align: right;
 }
@@ -104,6 +102,8 @@ button {
     border-radius: 35%;
     /* Spacing */
     margin: 0.5% 7% 0.5%;
+    /* Positioning */
+    align-self: center;
 }
 
 /* Deal button */
@@ -115,7 +115,6 @@ button {
     min-width: 120px;
     /* Positioning */
     order: 1;
-    align-self: center;
     margin: 0 30% 0 30%;
 }
 
@@ -123,14 +122,12 @@ button {
 #hit {
     /* Positioning */
     order: 2;
-    align-self: center;
 }
 
 /* Stay button */
 #stay {
     /* Positioning */
     order: 3;
-    align-self: center;
 }
 
 /* Rules and reset buttons */
