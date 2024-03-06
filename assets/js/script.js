@@ -68,11 +68,14 @@ function startGame() {
         playerSum += getValue(card);
         playerAceCount += checkAce(card);
         document.getElementById("player-hand").append(cardImg);
+        //Displays players current score
+        document.getElementById("player-score").innerText = playerSum;
     }
     console.log(playerSum);
 
     //Add event listener for when control buttons are clicked
     document.getElementById("hit").addEventListener("click", hit);
+    document.getElementById("stay").addEventListener("click", stay);
 
 }
 
@@ -89,11 +92,41 @@ function hit() {
     playerSum += getValue(card);
     playerAceCount += checkAce(card);
     document.getElementById("player-hand").append(cardImg);
+    //Updates players current score
+    document.getElementById("player-score").innerText = playerSum;
 
     //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
     if (reduceAce(playerSum, playerAceCount) > 21) {
         canHit = false;
     }
+}
+
+function stay() {
+    //Reveals opponents hidden card
+    document.getElementById("hidden").src = "../assets/images/cards/" + hidden + ".png";
+    document.getElementById("opponent-sum").innerText = opponentSum;
+
+    //Calculates boths players totals, considering reduceAce function
+    opponentSum = reduceAce(opponentSum, opponentAceCount);
+    playerSum = reduceAce(playerSum, playerAceCount);
+
+    //Disables function to add additional cards
+    canHit = false;
+
+    //Results declared as an alert
+    let result = "";
+    if (playerSum > 21) {
+        alert("BUST! You lose");
+    } else if (opponentSum > 21) {
+        alert("YOU WIN!");
+    } else if (playerSum === opponentSum) {
+        alert("IT'S A TIE");
+    } else if (playerSum > opponentSum) {
+        alert("YOU WIN!");
+    } else if (playerSum < opponentSum) {
+        alert("YOU LOSE!");
+    }
+
 }
 
 //Will get the value of the card that is dealt
