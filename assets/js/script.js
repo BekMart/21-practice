@@ -7,15 +7,14 @@ var playerAceCount = 0;
 //Opponents hidden card and deck itself
 var hidden;
 var deck;
-//Allows player to draw a card if playerSum <=21
+//Allows player to draw a card if playerSum < 21
 var canHit = true;
 
-//Functions that will execute once page initially loads
+//Functions that will automatically execute once page initially loads
 window.onload = function () {
     buildDeck();
     shuffleDeck();
     startGame();
-
 }
 
 //Create the deck - runs through them in an ordered fashion and returns them this way ("a-c" --> "k-s")
@@ -29,6 +28,7 @@ function buildDeck() {
             deck.push(values[x] + "-" + types[i]);
         }
     }
+    console.log(deck);
 }
 
 //Function to shuffle deck each time that the page loads or that the deal button is clicked
@@ -39,6 +39,7 @@ function shuffleDeck() {
         deck[i] = deck[x]; //Makes it random
         deck[x] = temp; //Deck is shuffled through
     }
+    console.log(deck);
 }
 
 //Function to set up the game
@@ -46,31 +47,53 @@ function startGame() {
     hidden = deck.pop(); //Will take a card from the end of the shuffled deck and asign it to the opponents hidden card
     opponentSum += getValue(hidden); //Will add value of the opponents card + their hidden card to get their sum
     opponentAceCount += checkAce(hidden); //Will check to see if the opponent has an ace as this is a special card
-    addOpponentCard();
     console.log(hidden);
-    console.log(opponentSum);
 
     //Deal opponent another card
-    function addOpponentCard() {
+    for (i = 0; i < 1; i++) {
         let cardImg = document.createElement("img"); //Create img element to host card
-        let card = deck.pop();//Select random card from shuffled deck
-        cardImg.src = "../assets/images/cards/" + card + ".png";//This is where the card files are located
-        opponentSum += getValue(card);//Calculates the sum of the opponents cards
-        opponentAceCount += checkAce(card);//Checks to see if the card is an ace
-        document.getElementById("opponent-hand").append(cardImg);//This is the location of where to place the selected card
+        let card = deck.pop(); //Select random card from shuffled deck
+        cardImg.src = "../assets/images/cards/" + card + ".png"; //This is where the card files are located
+        opponentSum += getValue(card); //Calculates the sum of the opponents cards
+        opponentAceCount += checkAce(card); //Checks to see if the card is an ace
+        document.getElementById("opponent-hand").append(cardImg); //This is the location of where to place the selected card
     }
+    console.log(opponentSum);
 
     //Deal player 2 cards
     for (i = 0; i < 2; i++) {
-        let cardImg = document.createElement("img"); 
+        let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "../assets/images/cards/" + card + ".png";
         playerSum += getValue(card);
         playerAceCount += checkAce(card);
         document.getElementById("player-hand").append(cardImg);
     }
+    console.log(playerSum);
 
-    
+    //Add event listener for when control buttons are clicked
+    document.getElementById("hit").addEventListener("click", hit);
+
+}
+
+//Add function for when hit button is clicked
+function hit() {
+    if (!canHit) { //You cannot use this function if playerSum is 21 >
+        return;
+    }
+
+    //If you can hit and you click the button then a card will be drawn from the deck and displayed
+    let cardImg = document.createElement("img");
+    let card = deck.pop();
+    cardImg.src = "../assets/images/cards/" + card + ".png";
+    playerSum += getValue(card);
+    playerAceCount += checkAce(card);
+    document.getElementById("player-hand").append(cardImg);
+
+    //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
+    if (reduceAce(playerSum, playerAceCount) > 21) {
+        canHit = false;
+    }
 }
 
 //Will get the value of the card that is dealt
@@ -98,4 +121,13 @@ function checkAce(card) {
     } else {
         return 0;
     }
+}
+
+//If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
+function reduceAce(eitherPlayerSum, eitherPlayerAceCount) {
+    while (eitherPlayerSum > 21 && eitherPlayerAceCount > 0) {
+        eitherPlayerSum -= 10;
+        eitherPlayerAceCount -= 1;
+    }
+    return eitherPlayerSum;
 }
