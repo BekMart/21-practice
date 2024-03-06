@@ -10,11 +10,14 @@ var deck;
 //Allows player to draw a card if playerSum <=21
 var canHit = true;
 
+//Functions that will execute once page initially loads
 window.onload = function() {
     buildDeck();
+    shuffleDeck();
 
 }
 
+//Create the deck
 function buildDeck() {
     let values = ["a", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"];
     let types = ["c", "d", "h", "s"];
@@ -26,4 +29,15 @@ function buildDeck() {
         }
     }
     console.log(deck);
+}
+
+//Function to shuffle deck each time that the page loads or that the deal button is clicked
+function shuffleDeck(){
+    for (let i = 0; i < deck.length; i++) {
+        let x = Math.floor(Math.random() * deck.length); // Will pick an integer between 0-51 from deck
+        let temp = deck[i];
+        deck[i] = deck[x];
+        deck[x] = temp;
+    }
+    console.log(deck)
 }
