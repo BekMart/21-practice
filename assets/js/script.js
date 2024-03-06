@@ -35,9 +35,9 @@ function buildDeck() {
 function shuffleDeck() {
     for (let i = 0; i < deck.length; i++) {
         let x = Math.floor(Math.random() * deck.length); // Will pick an integer between 0-51 from deck
-        let temp = deck[i];//Picks a card from the deck
-        deck[i] = deck[x];//Makes it random
-        deck[x] = temp;//Deck is shuffled through
+        let temp = deck[i]; //Picks a card from the deck
+        deck[i] = deck[x]; //Makes it random
+        deck[x] = temp; //Deck is shuffled through
     }
 }
 
@@ -45,8 +45,18 @@ function shuffleDeck() {
 function startGame() {
     hidden = deck.pop(); //Will take a card from the end of the shuffled deck and asign it to the opponents hidden card
     opponentSum += getValue(hidden); //Will add value of the opponents card + their hidden card to get their sum
-    opponentAceCount += checkAce(hidden);//Will check to see if the opponent has an ace as this is a special card
+    opponentAceCount += checkAce(hidden); //Will check to see if the opponent has an ace as this is a special card
+    addOpponentCard();
+    console.log(hidden);
+    console.log(opponentSum);
 
+    //Deal opponent another card
+    function addOpponentCard() {
+        let cardImg = document.createElement("img");
+        let card = deck.pop();
+        cardImg.src = "../assets/images/cards/" + card + ".png";
+        document.getElementById("opponent-hand").append(cardImg);
+    }
 }
 
 //Will get the value of the card that is dealt
