@@ -69,7 +69,7 @@ function startGame() {
         playerAceCount += checkAce(card);
         document.getElementById("player-hand").append(cardImg);
         //Displays players current score
-        document.getElementById("player-score").innerText = playerSum;
+        document.getElementById("player-sum").innerText = playerSum;
     }
     console.log(playerSum);
 
@@ -93,7 +93,7 @@ function hit() {
     playerAceCount += checkAce(card);
     document.getElementById("player-hand").append(cardImg);
     //Updates players current score
-    document.getElementById("player-score").innerText = playerSum;
+    document.getElementById("player-sum").innerText = playerSum;
 
     //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
     if (reduceAce(playerSum, playerAceCount) > 21) {
@@ -117,14 +117,18 @@ function stay() {
     let result = "";
     if (playerSum > 21) {
         alert("BUST! You lose");
+        incrementOpponentScore();
     } else if (opponentSum > 21) {
         alert("YOU WIN!");
+        incrementPlayerScore();
     } else if (playerSum === opponentSum) {
         alert("IT'S A TIE");
     } else if (playerSum > opponentSum) {
         alert("YOU WIN!");
+        incrementPlayerScore();
     } else if (playerSum < opponentSum) {
         alert("YOU LOSE!");
+        incrementOpponentScore();
     }
 
 }
@@ -163,4 +167,15 @@ function reduceAce(eitherPlayerSum, eitherPlayerAceCount) {
         eitherPlayerAceCount -= 1;
     }
     return eitherPlayerSum;
+}
+
+//Gets old scores from DOM and increments them by one depending on win/lose
+function incrementOpponentScore() {
+    let oldScore = parseInt(document.getElementById("opponent-score").innerText);
+    document.getElementById("opponent-score").innerText = ++oldScore;
+}
+
+function incrementPlayerScore() {
+    let oldScore = parseInt(document.getElementById("player-score").innerText);
+    document.getElementById("player-score").innerText = ++oldScore;
 }
