@@ -73,6 +73,7 @@ function startGame() {
         playerAceCount += checkAce(card);
         document.getElementById("player-hand").append(cardImg);
         //Displays players current score
+        playerSum = playerReduceAce(playerSum, playerAceCount);
         document.getElementById("player-sum").innerText = playerSum;
     }
     console.log(playerSum);
@@ -98,22 +99,23 @@ function hit() {
     playerAceCount += checkAce(card);
     document.getElementById("player-hand").append(cardImg);
     //Updates players current score
+    playerSum = playerReduceAce(playerSum, playerAceCount);
     document.getElementById("player-sum").innerText = playerSum;
 
     //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
-    if (reduceAce(playerSum, playerAceCount) > 21) {
+    if (playerReduceAce(playerSum, playerAceCount) > 21) {
         canHit = false;
-    } 
+    }
 }
 
 function stay() {
+    //Calculates boths players totals, considering reduceAce function
+    opponentSum = opponentReduceAce(opponentSum, opponentAceCount);
+    playerSum = playerReduceAce(playerSum, playerAceCount);
+
     //Reveals opponents hidden card
     document.getElementById("hidden").src = "../assets/images/cards/" + hidden + ".png";
     document.getElementById("opponent-sum").innerText = opponentSum;
-
-    //Calculates boths players totals, considering reduceAce function
-    opponentSum = reduceAce(opponentSum, opponentAceCount);
-    playerSum = reduceAce(playerSum, playerAceCount);
 
     //Disables function to add additional cards
     canHit = false;
@@ -153,8 +155,8 @@ function deal() {
     //Clears the current players score for next round
     opponentSum = parseInt("0");
     document.getElementById("opponent-sum").innerHTML = "?";
-    playerSum = parseInt("0"); 
-    
+    playerSum = parseInt("0");
+
     //Displays hidden card back on table on opponents side
     let hiddenImg = document.createElement("img"); //Create img element to host card
     hiddenImg.src = "../assets/images/back.png"; //This is where the card files are located
@@ -168,7 +170,11 @@ function deal() {
     //Allows player to click hit if card value is less than 21
     if (playerSum < 21) {
         canHit = true;
-    }   
+    } else if (playerSum >= 21) {
+        canHit = false;
+    }
+
+
 }
 
 
@@ -200,12 +206,21 @@ function checkAce(card) {
 }
 
 //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
-function reduceAce(eitherPlayerSum, eitherPlayerAceCount) {
-    while (eitherPlayerSum > 21 && eitherPlayerAceCount > 0) {
-        eitherPlayerSum -= 10;
-        eitherPlayerAceCount -= 1;
+function playerReduceAce(playerSum, playerAceCount) {
+    if (playerSum > 21 && playerAceCount > 0) {
+        playerSum -= 10;
+        playerAceCount -= 1;
     }
-    return eitherPlayerSum;
+    return playerSum;
+}
+
+//If opponent has an ace then it will perform the same as above function
+function opponentReduceAce(opponentSum, opponentAceCount) {
+    if (opponentSum > 21 && opponentAceCount > 0) {
+        opponentSum -= 10;
+        opponentAceCount -= 1;
+    }
+    return opponentSum;
 }
 
 //Gets old scores from DOM and increments them by one depending on win/lose
