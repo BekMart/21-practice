@@ -1,6 +1,10 @@
 //Create global variables
+//The opponent and player scores
 var opponentSum = 0;
 var playerSum = 0;
+//Create blank hands
+var opponentHand = 0;
+var playerHand = 0;
 //This will let us check what aces have been used
 var opponentAceCount = 0;
 var playerAceCount = 0;
@@ -76,6 +80,7 @@ function startGame() {
     //Add event listener for when control buttons are clicked
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
+    document.getElementById("deal").addEventListener("click", deal);
 
 }
 
@@ -132,6 +137,24 @@ function stay() {
     }
 
 }
+
+function deal() {
+    playerHand = document.getElementById("player-hand").querySelectorAll('img');
+    opponentHand = document.getElementById("opponent-hand").querySelectorAll('img');
+
+for (let i = 0; i < playerHand.length; i++) {
+    playerHand[i].remove();
+}
+for (let x = 0; x < opponentHand.length; x++) {
+    opponentHand[x].remove();
+}
+
+buildDeck();
+shuffleDeck();
+startGame();
+
+}
+
 
 //Will get the value of the card that is dealt
 function getValue(card) {
