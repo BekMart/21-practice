@@ -139,6 +139,7 @@ function stay() {
 }
 
 function deal() {
+    //Returns all played cards from the table to the deck
     playerHand = document.getElementById("player-hand").querySelectorAll('img');
     opponentHand = document.getElementById("opponent-hand").querySelectorAll('img');
 
@@ -149,6 +150,12 @@ for (let x = 0; x < opponentHand.length; x++) {
     opponentHand[x].remove();
 }
 
+//Displays hidden card back on table on opponents side
+let hiddenImg = document.createElement("img"); //Create img element to host card
+hiddenImg.src = "../assets/images/back.png"; //This is where the card files are located
+document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
+
+//Returns all cards to the deck, shuffles, deals a new hand to both players
 buildDeck();
 shuffleDeck();
 startGame();
