@@ -103,7 +103,7 @@ function hit() {
     //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
     if (reduceAce(playerSum, playerAceCount) > 21) {
         canHit = false;
-    }
+    } 
 }
 
 function stay() {
@@ -143,23 +143,28 @@ function deal() {
     playerHand = document.getElementById("player-hand").querySelectorAll('img');
     opponentHand = document.getElementById("opponent-hand").querySelectorAll('img');
 
-for (let i = 0; i < playerHand.length; i++) {
-    playerHand[i].remove();
-}
-for (let x = 0; x < opponentHand.length; x++) {
-    opponentHand[x].remove();
-}
+    for (let i = 0; i < playerHand.length; i++) {
+        playerHand[i].remove();
+    }
+    for (let x = 0; x < opponentHand.length; x++) {
+        opponentHand[x].remove();
+    }
 
-//Displays hidden card back on table on opponents side
-let hiddenImg = document.createElement("img"); //Create img element to host card
-hiddenImg.src = "../assets/images/back.png"; //This is where the card files are located
-document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
+    //Clears the current players score for next round
+    opponentSum = parseInt("0");
+    document.getElementById("opponent-sum").innerHTML = "?";
+    playerSum = parseInt("0"); 
+    
+    //Displays hidden card back on table on opponents side
+    let hiddenImg = document.createElement("img"); //Create img element to host card
+    hiddenImg.src = "../assets/images/back.png"; //This is where the card files are located
+    document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
 
-//Returns all cards to the deck, shuffles, deals a new hand to both players
-buildDeck();
-shuffleDeck();
-startGame();
-
+    //Returns all cards to the deck, shuffles, deals a new hand to both players
+    buildDeck();
+    shuffleDeck();
+    startGame();
+    
 }
 
 
