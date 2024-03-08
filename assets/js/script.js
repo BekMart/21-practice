@@ -164,7 +164,11 @@ function deal() {
     buildDeck();
     shuffleDeck();
     startGame();
-    
+
+    //Allows player to click hit if card value is less than 21
+    if (playerSum < 21) {
+        canHit = true;
+    }   
 }
 
 
