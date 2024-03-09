@@ -66,8 +66,8 @@ function startGame() {
 
     //Deal player 2 cards
     for (i = 0; i < 2; i++) {
-        let cardImg = document.createElement("img");
-        let card = deck.pop();
+        cardImg = document.createElement("img");
+        card = deck.pop();
         cardImg.src = "../assets/images/cards/" + card + ".png";
         playerSum += getValue(card);
         playerAceCount += checkAce(card);
@@ -109,6 +109,17 @@ function hit() {
 }
 
 function stay() {
+    //Opponent will pick up additional cards until their score is at least 17
+    while (opponentSum < 17) {
+        let cardImg = document.createElement("img");
+        let card = deck.pop();
+        cardImg.src = "../assets/images/cards/" + card + ".png";
+        opponentSum += getValue(card);
+        opponentAceCount += checkAce(card);
+        document.getElementById("opponent-hand").append(cardImg);
+    }
+    console.log(opponentSum);
+    
     //Calculates boths players totals, considering reduceAce function
     opponentSum = opponentReduceAce(opponentSum, opponentAceCount);
     playerSum = playerReduceAce(playerSum, playerAceCount);
@@ -207,11 +218,12 @@ function checkAce(card) {
 
 //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
 function playerReduceAce(playerSum, playerAceCount) {
-    if (playerSum > 21 && playerAceCount > 0) {
+    while (playerSum > 21 && playerAceCount > 0) {
         playerSum -= 10;
         playerAceCount -= 1;
     }
     return playerSum;
+    return playerAceCount;
 }
 
 //If opponent has an ace then it will perform the same as above function
