@@ -48,9 +48,12 @@ function shuffleDeck() {
 
 //Function to set up the game
 function startGame() {
+    let hiddenImg = document.createElement("img"); //Create img element to host card
+    hiddenImg.src = "assets/images/back.png"; //This is where the card files are located
+    document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
     hidden = deck.pop(); //Will take a card from the end of the shuffled deck and asign it to the opponents hidden card
     opponentSum += getValue(hidden); //Will add value of the opponents card + their hidden card to get their sum
-    // opponentAceCount += checkAce(hidden); //Will check to see if the opponent has an ace as this is a special card
+    // // opponentAceCount += checkAce(hidden); //Will check to see if the opponent has an ace as this is a special card
     console.log(hidden);
 
     //Deal opponent another card
@@ -130,7 +133,13 @@ function stay() {
     // playerSum = playerReduceAce(playerSum, playerAceCount);
 
     //Reveals opponents hidden card
-    document.getElementById("hidden").src = "assets/images/cards/" + hidden + ".png";
+    let reveal = document.createElement("img"); //Creates variable for revealed card image
+    reveal.src = "assets/images/cards/" + hidden + ".png"; //Gets revealed card image from hidden variable
+    document.getElementById("opponent-hand").prepend(reveal); //Puts revealed card at the begining of opponents hand
+    //Discards the back image of hidden card
+    let discard = document.getElementById("opponent-hand").children[1]; //Creates variable for hidden card and locates it 
+    discard.remove(); //Removes hidden card from table
+    // //Calculates and displays oponents score
     document.getElementById("opponent-sum").innerText = opponentSum;
 
     //Disables function to add additional cards
@@ -175,11 +184,6 @@ function deal() {
     opponentSum = parseInt("0");
     document.getElementById("opponent-sum").innerHTML = "?";
     playerSum = parseInt("0");
-
-    //Displays hidden card back on table on opponents side
-    let hiddenImg = document.createElement("img"); //Create img element to host card
-    hiddenImg.src = "assets/images/back.png"; //This is where the card files are located
-    document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
 
     //Returns all cards to the deck, shuffles, deals a new hand to both players
     buildDeck();
