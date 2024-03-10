@@ -6,8 +6,8 @@ var playerSum = 0;
 var opponentHand = 0;
 var playerHand = 0;
 //This will let us check what aces have been used
-var opponentAceCount = 0;
-var playerAceCount = 0;
+// var opponentAceCount = 0;
+// var playerAceCount = 0;
 //Opponents hidden card and deck itself
 var hidden;
 var deck;
@@ -50,16 +50,16 @@ function shuffleDeck() {
 function startGame() {
     hidden = deck.pop(); //Will take a card from the end of the shuffled deck and asign it to the opponents hidden card
     opponentSum += getValue(hidden); //Will add value of the opponents card + their hidden card to get their sum
-    opponentAceCount += checkAce(hidden); //Will check to see if the opponent has an ace as this is a special card
+    // opponentAceCount += checkAce(hidden); //Will check to see if the opponent has an ace as this is a special card
     console.log(hidden);
 
     //Deal opponent another card
     for (i = 0; i < 1; i++) {
         let cardImg = document.createElement("img"); //Create img element to host card
         let card = deck.pop(); //Select random card from shuffled deck
-        cardImg.src = "../assets/images/cards/" + card + ".png"; //This is where the card files are located
+        cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card files are located
         opponentSum += getValue(card); //Calculates the sum of the opponents cards
-        opponentAceCount += checkAce(card); //Checks to see if the card is an ace
+        // opponentAceCount += checkAce(card); //Checks to see if the card is an ace
         document.getElementById("opponent-hand").append(cardImg); //This is the location of where to place the selected card
     }
     console.log(opponentSum);
@@ -68,12 +68,12 @@ function startGame() {
     for (i = 0; i < 2; i++) {
         cardImg = document.createElement("img");
         card = deck.pop();
-        cardImg.src = "../assets/images/cards/" + card + ".png";
+        cardImg.src = "assets/images/cards/" + card + ".png";
         playerSum += getValue(card);
-        playerAceCount += checkAce(card);
+        // playerAceCount += checkAce(card);
         document.getElementById("player-hand").append(cardImg);
         //Displays players current score
-        playerSum = playerReduceAce(playerSum, playerAceCount);
+        // playerSum = playerReduceAce(playerSum, playerAceCount);
         document.getElementById("player-sum").innerText = playerSum;
     }
     console.log(playerSum);
@@ -94,16 +94,21 @@ function hit() {
     //If you can hit and you click the button then a card will be drawn from the deck and displayed
     let cardImg = document.createElement("img");
     let card = deck.pop();
-    cardImg.src = "../assets/images/cards/" + card + ".png";
+    cardImg.src = "assets/images/cards/" + card + ".png";
     playerSum += getValue(card);
-    playerAceCount += checkAce(card);
+    // playerAceCount += checkAce(card);
     document.getElementById("player-hand").append(cardImg);
     //Updates players current score
-    playerSum = playerReduceAce(playerSum, playerAceCount);
+    // playerSum = playerReduceAce(playerSum, playerAceCount);
     document.getElementById("player-sum").innerText = playerSum;
 
     //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
-    if (playerReduceAce(playerSum, playerAceCount) > 21) {
+    // if (playerReduceAce(playerSum, playerAceCount) > 21) {
+    //     canHit = false;
+    // }
+    if (playerSum < 21) {
+        canHit = true;
+    } else if (playerSum >= 21) {
         canHit = false;
     }
 }
@@ -113,19 +118,19 @@ function stay() {
     while (opponentSum < 17) {
         let cardImg = document.createElement("img");
         let card = deck.pop();
-        cardImg.src = "../assets/images/cards/" + card + ".png";
+        cardImg.src = "assets/images/cards/" + card + ".png";
         opponentSum += getValue(card);
-        opponentAceCount += checkAce(card);
+        // opponentAceCount += checkAce(card);
         document.getElementById("opponent-hand").append(cardImg);
     }
     console.log(opponentSum);
-    
+
     //Calculates boths players totals, considering reduceAce function
-    opponentSum = opponentReduceAce(opponentSum, opponentAceCount);
-    playerSum = playerReduceAce(playerSum, playerAceCount);
+    // opponentSum = opponentReduceAce(opponentSum, opponentAceCount);
+    // playerSum = playerReduceAce(playerSum, playerAceCount);
 
     //Reveals opponents hidden card
-    document.getElementById("hidden").src = "../assets/images/cards/" + hidden + ".png";
+    document.getElementById("hidden").src = "assets/images/cards/" + hidden + ".png";
     document.getElementById("opponent-sum").innerText = opponentSum;
 
     //Disables function to add additional cards
@@ -163,6 +168,9 @@ function deal() {
         opponentHand[x].remove();
     }
 
+    // playerAceCount = 0;
+    // opponentAceCount = 0;
+
     //Clears the current players score for next round
     opponentSum = parseInt("0");
     document.getElementById("opponent-sum").innerHTML = "?";
@@ -170,7 +178,7 @@ function deal() {
 
     //Displays hidden card back on table on opponents side
     let hiddenImg = document.createElement("img"); //Create img element to host card
-    hiddenImg.src = "../assets/images/back.png"; //This is where the card files are located
+    hiddenImg.src = "assets/images/back.png"; //This is where the card files are located
     document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
 
     //Returns all cards to the deck, shuffles, deals a new hand to both players
@@ -185,9 +193,7 @@ function deal() {
         canHit = false;
     }
 
-
 }
-
 
 //Will get the value of the card that is dealt
 function getValue(card) {
@@ -208,32 +214,35 @@ function getValue(card) {
 }
 
 //This function checks to see if a card is an ace
-function checkAce(card) {
-    if (card[0] === "a") {
-        return 1;
-    } else {
-        return 0;
-    }
-}
+// function checkAce(card) {
+
+//     if (card.charAt(0) === "a") {
+//         return 1;
+//     } else {
+//         return 0;
+//     }
+// }
 
 //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
-function playerReduceAce(playerSum, playerAceCount) {
-    while (playerSum > 21 && playerAceCount > 0) {
-        playerSum -= 10;
-        playerAceCount -= 1;
-    }
-    return playerSum;
-    return playerAceCount;
-}
+// function playerReduceAce(playerSum, playerAceCount) {
+
+//     while (playerSum > 21 && playerAceCount > 0) {
+//         playerSum -= 10;
+//         playerAceCount -= 1;
+//         console.log("playerReduceAce= ", playerSum, playerAceCount)
+//     }
+//     return playerSum;
+//     return playerAceCount;
+// }
 
 //If opponent has an ace then it will perform the same as above function
-function opponentReduceAce(opponentSum, opponentAceCount) {
-    if (opponentSum > 21 && opponentAceCount > 0) {
-        opponentSum -= 10;
-        opponentAceCount -= 1;
-    }
-    return opponentSum;
-}
+// function opponentReduceAce(opponentSum, opponentAceCount) {
+//     if (opponentSum > 21 && opponentAceCount > 0) {
+//         opponentSum -= 10;
+//         opponentAceCount -= 1;
+//     }
+//     return opponentSum;
+// }
 
 //Gets old scores from DOM and increments them by one depending on win/lose
 function incrementOpponentScore() {
