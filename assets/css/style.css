@@ -107,6 +107,17 @@ button {
     align-self: center;
 }
 
+/* Buttons all change color - becoming inverted when they are hovered over */
+button:hover {
+    background-color: #163904;
+    color: #CFB006;
+    border: #CFB006 2px solid;
+}
+/* Buttons depress when they are clicked */
+button:active {
+    transform: scale(0.95);
+}
+
 /* Deal button */
 #deal {
     /* Font */
@@ -141,7 +152,6 @@ button {
     margin: 2%;
 }
 
-
 /* The Game Rules Modal */
 /* Background styling */
 .modal {
@@ -164,7 +174,7 @@ button {
     /* Fallback background */
     background-color: rgb (0, 0, 0, );
     /* Black w/ opacity */
-    background-color: rgba(0, 0, 0, 0.4);   
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* Modal Content/Box */
@@ -177,7 +187,7 @@ button {
     padding: 20px;
     /* Box border */
     border: 1px solid #163904;
-     /* Could be more or less, depending on screen size */
+    /* Could be more or less, depending on screen size */
     width: 80%;
 }
 
@@ -202,6 +212,7 @@ button {
     margin-bottom: 1em;
     padding-left: 1.5em;
     position: relative;
+
     /* Creates diamond bullet points */
     &:after {
         content: '';
