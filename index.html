@@ -41,7 +41,27 @@
         </div>
     </div>
     <div id="settings">
+        <!-- Trigger/Open The Modal -->
         <button id="game-rules">Game Rules</button>
+        <!-- The Modal -->
+        <div id="ruleModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Rules:</p>
+                <ul>
+                    <li>Get a higher score than your opponent, without going over 21</li>
+                    <li>Otherwise you will go bust and lose the hand automatically</li>
+                    <li>Cards are valued the same as their number figure</li>
+                    <li>Picture cards are worth 10</li>
+                    <li>Aces are worth either 11 or 1</li>
+                    <li>Click Hit if you want another card added to your hand</li>
+                    <li>Otherwise, click stay to reveal the winner</li>
+                </ul>
+            </div>
+
+        </div>
         <button id="restart-game">Restart Game</button>
     </div>
     <script src="assets/js/script.js"></script>
