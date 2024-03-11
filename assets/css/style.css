@@ -45,6 +45,8 @@ h1 {
 #opponent-score-area {
     border: solid 2px #CFB006;
     text-align: left;
+    /* Outline score text */
+    -webkit-text-stroke: .25px #CFB006;
 }
 
 /* Where the cards are dealt to for opponent and player (darker translucent box) */
@@ -77,6 +79,8 @@ h1 {
 #player-score-area {
     border: solid 2px #CFB006;
     text-align: right;
+    /* Outline score text */
+    -webkit-text-stroke: .25px #CFB006;
 }
 
 /* Game buttons in center */
