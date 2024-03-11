@@ -117,6 +117,7 @@ button:hover {
     color: #CFB006;
     border: #CFB006 2px solid;
 }
+
 /* Buttons depress when they are clicked */
 button:active {
     transform: scale(0.95);
@@ -155,6 +156,32 @@ button:active {
     /* Positioning */
     margin: 2%;
 }
+
+/* Display of results */
+@keyframes result {
+    from {
+        color: rgba(22, 57, 4, 0);
+        font-size: 200%;
+    }
+
+    to {
+        color: red;
+        -webkit-text-stroke: 4px #163904;
+        font-size: 600%;
+    }
+
+}
+
+#results {
+    color: rgba(22, 57, 4, 0);
+    font-size: 200%;
+    animation-name: result;
+    animation-duration: 5000ms;
+    position: absolute;
+    top: auto;
+    left: 20vw;
+}
+
 
 /* The Game Rules Modal */
 /* Background styling */

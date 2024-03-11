@@ -14,7 +14,6 @@ var deck;
 //Allows player to draw a card if playerSum < 21
 var canHit = true;
 
-
 //Functions that will automatically execute once page initially loads
 window.onload = function () {
     buildDeck();
@@ -144,21 +143,21 @@ function stay() {
     //Disables function to add additional cards
     canHit = false;
 
-    //Results declared as an alert
+    //Results declared as an animation
     let result = "";
     if (playerSum > 21) {
-        alert("BUST! You lose");
+        document.getElementById("results").textContent = "Bust!";
         incrementOpponentScore();
     } else if (opponentSum > 21) {
-        alert("YOU WIN!");
+        document.getElementById("results").textContent = "You win!";
         incrementPlayerScore();
     } else if (playerSum === opponentSum) {
-        alert("IT'S A TIE");
+        document.getElementById("results").textContent = "Its a tie!";
     } else if (playerSum > opponentSum) {
-        alert("YOU WIN!");
+        document.getElementById("results").textContent = "You win!";
         incrementPlayerScore();
     } else if (playerSum < opponentSum) {
-        alert("YOU LOSE!");
+        document.getElementById("results").textContent = "You lose!";
         incrementOpponentScore();
     }
 
