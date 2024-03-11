@@ -14,6 +14,7 @@ var deck;
 //Allows player to draw a card if playerSum < 21
 var canHit = true;
 
+
 //Functions that will automatically execute once page initially loads
 window.onload = function () {
     buildDeck();
@@ -84,7 +85,10 @@ function startGame() {
     //Add event listener for when control buttons are clicked
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
-    document.getElementById("deal").addEventListener("click", deal);
+    
+    //Once game is set up, the deal button is disabled, until the user clicks stay
+    document.getElementById("deal").removeEventListener("click", deal);
+    
 
 }
 
@@ -162,6 +166,9 @@ function stay() {
         alert("YOU LOSE!");
         incrementOpponentScore();
     }
+
+    // Enables user to click deal to deal a new hand
+    document.getElementById("deal").addEventListener("click", deal);
 
 }
 
