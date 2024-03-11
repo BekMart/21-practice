@@ -89,7 +89,6 @@ function startGame() {
     //Once game is set up, the deal button is disabled, until the user clicks stay
     document.getElementById("deal").removeEventListener("click", deal);
     
-
 }
 
 //Add function for when hit button is clicked
@@ -169,6 +168,9 @@ function stay() {
 
     // Enables user to click deal to deal a new hand
     document.getElementById("deal").addEventListener("click", deal);
+
+    //Disables user from clicking stay more than once
+    document.getElementById("stay").removeEventListener("click", stay);
 
 }
 
