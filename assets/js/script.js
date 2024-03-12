@@ -107,11 +107,12 @@ function hit() {
     playerSum = playerReduceAce(playerSum, playerAceCount);
     document.getElementById("player-sum").innerText = playerSum;
 
-    //If you have more than 21 then you can no longer click hit
+    //If player has a score less than 21 then they can click hit for another card
     if (playerSum < 21) {
         canHit = true;
-    } else if (playerSum >= 21) {
-        canHit = false;
+    //If players score exceeds 21 thenm stay function will be triggered and BUST message displayed
+    } else if (playerSum > 21) {
+        stay();
     }
 }
 
@@ -164,7 +165,7 @@ function stay() {
     const resultsElement = document.getElementById("results");
 
     resultsElement.classList.add("animated");
-    
+
     setTimeout(() => {
         resultsElement.classList.remove("animated");
     }, 5000);
