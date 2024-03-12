@@ -110,7 +110,7 @@ function hit() {
     //If player has a score less than 21 then they can click hit for another card
     if (playerSum < 21) {
         canHit = true;
-    //If players score exceeds 21 thenm stay function will be triggered and BUST message displayed
+    //If players score exceeds 21 then stay function will be triggered and BUST message displayed
     } else if (playerSum > 21) {
         stay();
     }

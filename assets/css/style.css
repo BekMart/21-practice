@@ -45,16 +45,17 @@ h1 {
 
 /* Opponent score area */
 #opponent-score-area {
-    border: solid 2px #CFB006;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 4px #163904;
     text-align: left;
     /* Outline score text */
-    -webkit-text-stroke: .25px #CFB006;
+    color: #CFB006;
 }
 
 /* Where the cards are dealt to for opponent and player (darker translucent box) */
 #opponent-hand,
 #player-hand {
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
     height: 25%;
     max-height: 200px;
     width: 85%;
@@ -79,9 +80,10 @@ h1 {
 
 /* Player score area */
 #player-score-area {
-    border: solid 2px #CFB006;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid 4px #163904;
     text-align: right;
-    -webkit-text-stroke: .25px #CFB006;
+    color: #CFB006;
 }
 
 /* Game buttons in center */
