@@ -23,6 +23,8 @@ body {
     font-weight: 400;
     text-transform: uppercase;
     text-align: center;
+    /* Set body to relative to support results being displayed in absolute */
+    position: relative;
 }
 
 /* Page Title */
@@ -79,7 +81,6 @@ h1 {
 #player-score-area {
     border: solid 2px #CFB006;
     text-align: right;
-    /* Outline score text */
     -webkit-text-stroke: .25px #CFB006;
 }
 
@@ -157,31 +158,41 @@ button:active {
     margin: 2%;
 }
 
-/* Display of results */
-@keyframes result {
+/* Display of results as an animation */
+/* Results are displayed and change color and size as detailed below */
+@keyframes result-display {
     from {
         color: rgba(22, 57, 4, 0);
-        font-size: 200%;
+        font-size: 1%;
     }
 
     to {
         color: red;
-        -webkit-text-stroke: 4px #163904;
-        font-size: 600%;
+        -webkit-text-stroke: 2px #163904;
+        font-size: 400%;
     }
-
 }
 
-#results {
+.animated {
     color: rgba(22, 57, 4, 0);
-    font-size: 200%;
-    animation-name: result;
-    animation-duration: 5000ms;
+    font-size: 1%;
+    /* Animation plays for 3secs and is linked to the above */
+    animation-name: result-display;
+    animation-duration: 3s;
+    /* Absolute positioning and set to display from the middle of the page */
     position: absolute;
-    top: auto;
-    left: 20vw;
+    top: 50%;
+    left: 50%;
+    /* Element grows outwards from center */
+    transform:translate(-50%, -20%);
 }
 
+/* Displays the result on page afterwards but is transparent */
+#results {
+    color: transparent;
+    -webkit-text-stroke: transparent;
+    font-size: 0.001%;
+}
 
 /* The Game Rules Modal */
 /* Background styling */

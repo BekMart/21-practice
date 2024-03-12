@@ -78,8 +78,8 @@ function startGame() {
         //Displays players current score
         playerSum = playerReduceAce(playerSum, playerAceCount);
         document.getElementById("player-sum").innerText = playerSum;
+        console.log(playerSum);
     }
-    console.log(playerSum);
 
     //Add event listener for when control buttons are clicked
     document.getElementById("hit").addEventListener("click", hit);
@@ -125,7 +125,6 @@ function stay() {
         opponentAceCount += checkAce(card);
         document.getElementById("opponent-hand").append(cardImg);
     }
-    console.log(opponentSum);
 
     //Calculates opponents total score considering reduceAce function
     opponentSum = opponentReduceAce(opponentSum, opponentAceCount);
@@ -137,14 +136,14 @@ function stay() {
     //Discards the back image of hidden card
     let discard = document.getElementById("opponent-hand").children[1]; //Creates variable for hidden card and locates it 
     discard.remove(); //Removes hidden card from table
-    // //Calculates and displays oponents score
+    //Calculates and displays oponents score
     document.getElementById("opponent-sum").innerText = opponentSum;
 
     //Disables function to add additional cards
     canHit = false;
 
-    //Results declared as an animation
-    let result = "";
+
+    //If statments used to determine who wins
     if (playerSum > 21) {
         document.getElementById("results").textContent = "Bust!";
         incrementOpponentScore();
@@ -161,11 +160,22 @@ function stay() {
         incrementOpponentScore();
     }
 
+    //This code enables the animation to stop and start each time a game is played
+    const resultsElement = document.getElementById("results");
+
+    resultsElement.classList.add("animated");
+    
+    setTimeout(() => {
+        resultsElement.classList.remove("animated");
+    }, 5000);
+
+
     // Enables user to click deal to deal a new hand
     document.getElementById("deal").addEventListener("click", deal);
 
     //Disables user from clicking stay more than once
     document.getElementById("stay").removeEventListener("click", stay);
+
 }
 
 function deal() {
@@ -240,6 +250,7 @@ function playerReduceAce(playerSum, playerAceCount) {
         console.log("playerReduceAce= ", playerSum, playerAceCount);
     }
     return playerSum;
+
 }
 
 //If opponent has an ace then it will perform the same as above function
