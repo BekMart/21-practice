@@ -6,8 +6,8 @@ var playerSum = 0;
 var opponentHand = 0;
 var playerHand = 0;
 //This will let us check what aces have been used
-var opponentAceCount = 0;
-var playerAceCount = 0;
+// var opponentAceCount = 0;
+// var playerAceCount = 0;
 //Opponents hidden card and deck itself
 var hidden;
 var deck;
@@ -53,7 +53,7 @@ function startGame() {
     document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
     hidden = deck.pop(); //Will take a card from the end of the shuffled deck and asign it to the opponents hidden card
     opponentSum += getValue(hidden); //Will add value of the opponents card + their hidden card to get their sum
-    opponentAceCount += checkAce(hidden); //Will check to see if the opponent has an ace as this is a special card
+    //opponentAceCount += checkAce(hidden); //Will check to see if the opponent has an ace as this is a special card
     console.log(hidden);
 
     //Deal opponent another card
@@ -62,7 +62,7 @@ function startGame() {
         let card = deck.pop(); //Select random card from shuffled deck
         cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card files are located
         opponentSum += getValue(card); //Calculates the sum of the opponents cards
-        opponentAceCount += checkAce(card); //Checks to see if the card is an ace
+       //opponentAceCount += checkAce(card); //Checks to see if the card is an ace
         document.getElementById("opponent-hand").append(cardImg); //This is the location of where to place the selected card
     }
     console.log(opponentSum);
@@ -73,10 +73,10 @@ function startGame() {
         card = deck.pop();
         cardImg.src = "assets/images/cards/" + card + ".png";
         playerSum += getValue(card);
-        playerAceCount += checkAce(card);
+        //playerAceCount += checkAce(card);
         document.getElementById("player-hand").append(cardImg);
         //Displays players current score
-        playerSum = playerReduceAce(playerSum, playerAceCount);
+        //playerSum = playerReduceAce(playerSum, playerAceCount);
         document.getElementById("player-sum").innerText = playerSum;
         console.log(playerSum);
     }
@@ -101,10 +101,10 @@ function hit() {
     let card = deck.pop();
     cardImg.src = "assets/images/cards/" + card + ".png";
     playerSum += getValue(card);
-    playerAceCount += checkAce(card);
+    //playerAceCount += checkAce(card);
     document.getElementById("player-hand").append(cardImg);
     //Updates players current score
-    playerSum = playerReduceAce(playerSum, playerAceCount);
+    //playerSum = playerReduceAce(playerSum, playerAceCount);
     document.getElementById("player-sum").innerText = playerSum;
 
     //If player has a score less than 21 then they can click hit for another card
@@ -123,12 +123,12 @@ function stay() {
         let card = deck.pop();
         cardImg.src = "assets/images/cards/" + card + ".png";
         opponentSum += getValue(card);
-        opponentAceCount += checkAce(card);
+        //opponentAceCount += checkAce(card);
         document.getElementById("opponent-hand").append(cardImg);
     }
 
     //Calculates opponents total score considering reduceAce function
-    opponentSum = opponentReduceAce(opponentSum, opponentAceCount);
+    //opponentSum = opponentReduceAce(opponentSum, opponentAceCount);
 
     //Reveals opponents hidden card
     let reveal = document.createElement("img"); //Creates variable for revealed card image
@@ -168,7 +168,7 @@ function stay() {
 
     setTimeout(() => {
         resultsElement.classList.remove("animated");
-    }, 5000);
+    }, 4000);
 
 
     // Enables user to click deal to deal a new hand
@@ -192,8 +192,8 @@ function deal() {
     }
 
     //Resets ace count for both players 
-    playerAceCount = 0;
-    opponentAceCount = 0;
+    //playerAceCount = 0;
+    //opponentAceCount = 0;
 
     //Clears the current players score for next round
     opponentSum = parseInt("0");
@@ -233,35 +233,35 @@ function getValue(card) {
 }
 
 //This function checks to see if a card is an ace
-function checkAce(card) {
+// function checkAce(card) {
 
-    if (card.charAt(0) === "a") {
-        return 1;
-    } else {
-        return 0;
-    }
-}
+//     if (card.charAt(0) === "a") {
+//         return 1;
+//     } else {
+//         return 0;
+//     }
+// }
 
 //If you have an ace in your hand and it amounts to more than 21 then you can reduce the value of ace by 10.
-function playerReduceAce(playerSum, playerAceCount) {
+// function playerReduceAce(playerSum, playerAceCount) {
 
-    if (playerSum > 21 && playerAceCount > 0) {
-        playerSum -= 10;
-        playerAceCount -= 1;
-        console.log("playerReduceAce= ", playerSum, playerAceCount);
-    }
-    return playerSum;
+//     if (playerSum > 21 && playerAceCount > 0) {
+//         playerSum -= 10;
+//         playerAceCount -= 1;
+//         console.log("playerReduceAce= ", playerSum, playerAceCount);
+//     }
+//     return playerSum;
 
-}
+// }
 
 //If opponent has an ace then it will perform the same as above function
-function opponentReduceAce(opponentSum, opponentAceCount) {
-    if (opponentSum > 21 && opponentAceCount > 0) {
-        opponentSum -= 10;
-        opponentAceCount -= 1;
-    }
-    return opponentSum;
-}
+// function opponentReduceAce(opponentSum, opponentAceCount) {
+//     if (opponentSum > 21 && opponentAceCount > 0) {
+//         opponentSum -= 10;
+//         opponentAceCount -= 1;
+//     }
+//     return opponentSum;
+// }
 
 //Gets old scores from DOM and increments them by one depending on win/lose
 function incrementOpponentScore() {
@@ -301,3 +301,25 @@ document.getElementById("restart-game").addEventListener("click", restart);
 function restart() {
     window.location.reload();
 }
+
+// function calculateScore(hand) {
+//     let score = 0;
+//     let hasAce = false; // Flag to track if there's an Ace with value 11
+  
+//     for (let card of hand) {
+//       let cardValue = getValue(card);
+//       score += cardValue;
+  
+//       if (cardValue === 11) {
+//         hasAce = true;
+//       }
+//     }
+  
+//     // If score is over 21 and there's an Ace with value 11, reduce its value
+//     if (score > 21 && hasAce) {
+//       score -= 10;
+//       hasAce = false; // Update flag as Ace value is now 1
+//     }
+  
+//     return score;
+//   }

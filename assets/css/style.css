@@ -55,7 +55,6 @@ h1 {
 /* Where the cards are dealt to for opponent and player (darker translucent box) */
 #opponent-hand,
 #player-hand {
-    /* background-color: rgba(0, 0, 0, 0.5); */
     height: 25%;
     max-height: 200px;
     width: 85%;
@@ -186,7 +185,7 @@ button:active {
     top: 50%;
     left: 50%;
     /* Element grows outwards from center */
-    transform:translate(-50%, -20%);
+    transform: translate(-50%, -20%);
 }
 
 /* Displays the result on page afterwards but is transparent */
