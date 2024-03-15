@@ -94,7 +94,6 @@ function startGame() {
 
     //Once game is set up, the deal button is disabled, until the user clicks stay
     document.getElementById("deal").removeEventListener("click", deal);
-
 }
 
 //Add function for when hit button is clicked
@@ -273,7 +272,11 @@ function adjustPlayerScore(playerCards, playerHasAce) {
             playerCards.splice(aceIndex, 1); // Finds and removes ace from playerCards
             playerSum -= 10; // Reduce the player score by 10
         }
-        console.log("player= ", {playerCards, playerSum, playerHasAce}); //Displays results in console log
+        console.log("player= ", {
+            playerCards,
+            playerSum,
+            playerHasAce
+        }); //Displays results in console log
     }
     return playerCards, playerHasAce; //Returns new values for array, score and has ace
 }
@@ -287,7 +290,11 @@ function adjustOpponentScore(opponentCards, opponentHasAce) {
             opponentCards.splice(aceIndex, 1); //Finds and removes ace from array
             opponentSum -= 10; //Reduce the opponent score by 10
         }
-        console.log("opponents= ", {opponentCards, opponentSum, opponentHasAce}); //Displays results in console log
+        console.log("opponents= ", {
+            opponentCards,
+            opponentSum,
+            opponentHasAce
+        }); //Displays results in console log
     }
     return opponentCards, opponentHasAce; //Returns new values for array, score and has ace
 }
@@ -305,23 +312,27 @@ function incrementPlayerScore() {
 
 // Below are all the audio functions for the game 
 function playShuffle() {
-    let shuffle = new Audio ("assets/sounds/shuffle.wav");
+    let shuffle = new Audio("assets/sounds/shuffle.wav");
     shuffle.play(); // Called when the game starts and hands are dealt
 }
+
 function playDealCard() {
-    let dealCard = new Audio ("assets/sounds/deal.wav");
+    let dealCard = new Audio("assets/sounds/deal.wav");
     dealCard.play(); // Called whhen a single card is being dealt
 }
+
 function playBust() {
-    let bust = new Audio ("assets/sounds/bust-lose.wav");
+    let bust = new Audio("assets/sounds/bust-lose.wav");
     bust.play(); // Called when player goes bust/loses hand
 }
+
 function playWin() {
-    let win = new Audio ("assets/sounds/win.wav");
+    let win = new Audio("assets/sounds/win.wav");
     win.play(); // Called when player wins the round
 }
+
 function playTie() {
-    let tie = new Audio ("assets/sounds/tie.wav");
+    let tie = new Audio("assets/sounds/tie.wav");
     tie.play(); // Called when the score is tied
 }
 
