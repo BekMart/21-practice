@@ -79,6 +79,7 @@ function startGame() {
         document.getElementById("player-hand").append(cardImg); //This places the selected cards on the table in players section
         playerCards.push(card); //Puts cards into an array
         playerSum += getValue(card); //Calculates the sum of the players cards
+        playShuffle(); // Plays audio of cards being shuffled/dealt
 
         //Displays players current score
         // Consider whether to change the ace to 1 opposed to 11(depending on score and whether player has an ace)
@@ -107,6 +108,7 @@ function hit() {
     let card = deck.pop(); //Select card from shuffled deck
     cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
     document.getElementById("player-hand").append(cardImg); //Places the selected card on the table in players section
+    playDealCard(); //Plays audio sound for a single card being dealt
     playerCards.push(card); //Puts cards into an array
 
     //Calculates players score
@@ -132,6 +134,7 @@ function stay() {
         let card = deck.pop(); // Selects cards from shuffled deck
         cardImg.src = "assets/images/cards/" + card + ".png"; //Where to obtain the associated card image
         document.getElementById("opponent-hand").append(cardImg); //Puts the image on the table in opponents hand
+        playDealCard(); //Plays audio sound for a single card being dealt if a card is placed on table
         opponentCards.push(card); //Puts card in an array
 
         opponentSum += getValue(card); // Calculates opponents score and whether they have an ace
@@ -159,17 +162,22 @@ function stay() {
     if (playerSum > 21) {
         document.getElementById("results").textContent = "Bust!";
         incrementOpponentScore();
+        playBust(); //Plays audio for losing hand
     } else if (opponentSum > 21) {
         document.getElementById("results").textContent = "You win!";
         incrementPlayerScore();
+        playWin(); //Plays audio for winning hand
     } else if (playerSum === opponentSum) {
         document.getElementById("results").textContent = "Its a tie!";
+        playTie(); // Plays audio for a draw
     } else if (playerSum > opponentSum) {
         document.getElementById("results").textContent = "You win!";
         incrementPlayerScore();
+        playWin(); //Plays audio for winning hand
     } else if (playerSum < opponentSum) {
         document.getElementById("results").textContent = "You lose!";
         incrementOpponentScore();
+        playBust(); //Plays audio for losing hand
     }
 
     //This code enables the animation to stop and start each time a game is played
@@ -293,6 +301,28 @@ function incrementOpponentScore() {
 function incrementPlayerScore() {
     let oldScore = parseInt(document.getElementById("player-score").innerText); //Gets oldscore from DOM
     document.getElementById("player-score").innerText = ++oldScore; //Increments score by one each time this function is called
+}
+
+// Below are all the audio functions for the game 
+function playShuffle() {
+    let shuffle = new Audio ("assets/sounds/shuffle.wav");
+    shuffle.play(); // Called when the game starts and hands are dealt
+}
+function playDealCard() {
+    let dealCard = new Audio ("assets/sounds/deal.wav");
+    dealCard.play(); // Called whhen a single card is being dealt
+}
+function playBust() {
+    let bust = new Audio ("assets/sounds/bust-lose.wav");
+    bust.play(); // Called when player goes bust/loses hand
+}
+function playWin() {
+    let win = new Audio ("assets/sounds/win.wav");
+    win.play(); // Called when player wins the round
+}
+function playTie() {
+    let tie = new Audio ("assets/sounds/tie.wav");
+    tie.play(); // Called when the score is tied
 }
 
 // Get the modal
