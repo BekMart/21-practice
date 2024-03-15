@@ -38,6 +38,8 @@ function buildDeck() {
     console.log(deck);
 }
 
+
+
 //Function to shuffle deck each time that the page loads or that the deal button is clicked
 function shuffleDeck() {
     for (let i = 0; i < deck.length; i++) {
@@ -56,6 +58,7 @@ function startGame() {
     hidden = deck.pop(); //Will take a card from the end of the shuffled deck and asign it to the opponents hidden card
     hiddenImg.src = "assets/images/back.png"; //This is where the card image files are located
     document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
+    hidden.alt = `${hidden}`;
     opponentCards.push(hidden); //Gets hidden card and puts its into an array
     opponentSum += getValue(hidden); //Will consider hidden card value to get the opponents sum and whether theres an ace
     console.log(hidden); //Displays what hidden card is in console log
@@ -66,6 +69,7 @@ function startGame() {
         let card = deck.pop(); //Select card from shuffled deck
         cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
         document.getElementById("opponent-hand").append(cardImg); //This is the location of where to place the selected card
+        card.alt = `${card}`;
         opponentCards.push(card); //Gets card and puts its into an array
         opponentSum += getValue(card); //Calculates the sum of the opponents cards and is it an ace
     }
@@ -77,6 +81,7 @@ function startGame() {
         card = deck.pop(); //Selects 2 cards from shuffled deck
         cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
         document.getElementById("player-hand").append(cardImg); //This places the selected cards on the table in players section
+        card.alt = `${card}`;
         playerCards.push(card); //Puts cards into an array
         playerSum += getValue(card); //Calculates the sum of the players cards
         playShuffle(); // Plays audio of cards being shuffled/dealt
@@ -107,6 +112,7 @@ function hit() {
     let card = deck.pop(); //Select card from shuffled deck
     cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
     document.getElementById("player-hand").append(cardImg); //Places the selected card on the table in players section
+    card.alt = `${card}`;
     playDealCard(); //Plays audio sound for a single card being dealt
     playerCards.push(card); //Puts cards into an array
 
@@ -133,6 +139,7 @@ function stay() {
         let card = deck.pop(); // Selects cards from shuffled deck
         cardImg.src = "assets/images/cards/" + card + ".png"; //Where to obtain the associated card image
         document.getElementById("opponent-hand").append(cardImg); //Puts the image on the table in opponents hand
+        card.alt = `${card}`;
         playDealCard(); //Plays audio sound for a single card being dealt if a card is placed on table
         opponentCards.push(card); //Puts card in an array
 
