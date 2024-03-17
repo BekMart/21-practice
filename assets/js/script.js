@@ -36,6 +36,12 @@ function buildDeck() {
         }
     }
     console.log(deck);
+
+    // //Create alt text for each of the cards in deck
+    // for (let a = 0; a < deck.length; a++) {
+    //     deck[a].alt = `"Card is, ", ${value} "of ", ${types}`; 
+    // }
+    // console.log(deck.alt);
 }
 
 
