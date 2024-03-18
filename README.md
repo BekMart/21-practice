@@ -19,10 +19,11 @@ This project is for educational purposes. The main aim is to build a responsive 
     - [Structure](#structure)
     - [Surface](#surface)
 - [Features](#features)
+    - [Features left to Implement](#features-to-implement)
 - [Technology used](#technology-used)
 - [Testing](#testing)
     - [Functionality Testing](#functionality)
-    - Compatability Testing
+    - [Compatability Testing](#compatability)
     - User stories testing
     - Issues Found
     - Performance Testing
@@ -179,6 +180,12 @@ The website contains the following features:
 - The game rules are displayed in a modal which pops up over the top of the page when clicked showing the game rules. The user can either click the x in the corner or anywhere else on the page to return to the game itself. 
 ![The rules for the game appear in a modal which displays the rules in the dark green font in a yellow window which sits above the game screen, which is darkened.][game-rules]
 
+<h1 id="#features-to-implement">Features left to Implement</h1>
+
+## Betting aspect
+
+To improve this website in the future, I could add a betting element. Whereby players can choose to bet chips to gain extra points against the computer for an added competitive edge. 
+
 [Back to Contents](#contents)
 <hr>
 
@@ -230,18 +237,18 @@ AI used to assist me in debugging elements in my code.
 - I can confirm that all the functions work as expected: 
 
     - When the game starts or the deal button is selected, a new deck of 52 cards is created in order and then randomly shuffled before dealing the cards to each of the players. 
-    - A card is then taken form the shuffled deck and dealt to the opponent with the face down so the card is unknown to the player. Followed by an additional card which is visible to all players. Two cards are then dealt to the player from the shuffled deck.
-    - When the hit button is selected, the player is dealt an additional card from the shuffled deck.
+    - Two cards are dealt to the opponent, with one face down and two cards are dealt to the player. 
+    - When the hit button is activated, the player is dealt an additional card.
     - Once the stay button is clicked, the round is over. The hit and stay buttons are disabled and the deal button is reactivated. The hidden card is then revealed along with any other cards that the opponent has in their hand. 
-    - The opponent will pick up an additional card if their current score is below 17.
-    - There is a function that will automatically calculate the value of an ace as 1 instead of 11 if the players score exceeds 21 and they have an ace in their hand.
+    - The opponent will pick up additional cards whilst their score is below 17.
+    - There is a function that will automatically calculate the value of an ace as 1 instead of 11 if the score of either player exceeds 21 and they have an ace in their hand.
     - The players score is calculated and displayed throughout the duration of the game. There is a function which calculates this based on the card selected and the value that it holds. 
     - The opponents score is revealed after the stay button has been activated and their cards have been revealed.
-    - There is also a function to record who won the round and increment their score to show how many rounds have been won by each contestant. 
+    - There is a function to record who won the round and increment their games won tally to show how many rounds have been won by each contestant. 
     - Once the scores are calculated and revealed an animated message is displayed in the middle of the screen which grows from the center and disappears after 3 seconds. 
-    - Audio effects are also played at certain points throughout the game. When the cards are dealt and when the results are being displayed. 
-    - When the user hovers over any of the buttons, the colours are invesrted and the button depresses when they click on it.
-    - There is a button at the bottom of the game labelled Game Rules. When this is clicked the rules for the game are displayed in a modal. The user can either click on the x in the corner or anywhere else on the screen to escape and return to the game. 
+    - Audio effects are played at certain points throughout the game. When the cards are dealt and when the results are being displayed. 
+    - When the user hovers over any of the buttons, the colours are inverted and the button depresses when they click on it.
+    - When the Game Rules button is clicked, the rules of the game are displayed in a modal. The user can either click on the x in the corner or anywhere else on the screen to escape and return to the game. 
     - There is a button to restart the game. This will wipe clean any previous scores and tallies that have been acrued and set up a new game.
 
 All of the above functions have been tested through running the game and using the console log on DevTools to ensure that everything is behaving the way that it ought to be.  
@@ -252,6 +259,17 @@ All of the above functions have been tested through running the game and using t
         - 'Devtools' toolbar in Chrome.
         - 'Am I Responsive' app. 
 
+<h2 id="compatability">Compatability Testing</h2>
+
+- I have manually tested that this website works in both Chrome and Safari web browsers.
+    - Everything works fine on Chrome.
+    - In Safari, the animated results appear but without the dark green outline and the audio files are tempremental. 
+
+- I tested the website on several hardware devices and can confirm that the website looks professional and works as intended, I used the following devices for testing:
+    - Galaxy S20
+    - Iphone 13
+    - MacBook Pro
+
 
 [responsive]: assets/images/responsive.png
 [structure]: assets/images/screenshots/21-screenshot.png
@@ -261,6 +279,3 @@ All of the above functions have been tested through running the game and using t
 [bust]: assets/images/screenshots/bust.png
 [setting-buttons]: assets/images/screenshots/settings-buttons.png
 [game-rules]: assets/images/screenshots/game-rules.png
-
-
-
