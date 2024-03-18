@@ -18,7 +18,7 @@ This project is for educational purposes. The main aim is to build a responsive 
     - [User stories](#user-stories)
     - [Structure](#structure)
     - [Surface](#surface)
-- Features
+- [Features](#features)
 - Technology used
 - Testing
     - Functionality Testing
@@ -121,4 +121,43 @@ I have used consistent and contrasting colours throughout the website, to ensure
 [Back to Contents](#contents)
 <hr>
 
+<h1 id="features">Features</h1>
+
+This website consists of just one page which hosts the game itself. 
+
+The website contains the following features:
+- There is a bold heading with the title of the game at the top of the page.
+![The title of the page is in a bold gold font with a red outline over a green textured background of a poker table][title]
+- The game area is in the center of the screen where the game takes place, differenciated by being a lighter shade to the rest of the background. This is where both the player and opponent cards are dealt. Bordered by their results sections. 
+![The game area has a background of a poker table with light images of the different suits. At the top of the game area is the opponents score sectionm underneath this is where the opponents cards are dealt. One of them is hidden. In the center of this section are the game controls and underneath that are the players hands which are both visible. At the bottom of the game area is the players' score area.][game-area]
+- When the page loads, the cards and created into a deck and shuffled, before being dealt out the start the game. 
+- The opponent is dealt two cards but only one of them is visible to the user and their score remains unkown. 
+![The opponent score area is at the top of this section set darker by adjusting the opaquness, to enhance the gold font which displays the current score inside a set of brackets (which is always a question mark until the user clicks stay to reveal the opponents hand and score) and games won tally. Underneath this are the opponents cards. The first of which is hidden, just showing the back of the card and the second is revealed.][opponent-side]
+- The player is dealt two cards and the total of these are displayed in brackets where it says players score.
+![This is a mirror image of the opponent's side in terms of structure. However, both cards are visible and the current player score is displayed in the score section to assist the user with their decision to either hit or stick.][player-side]
+- The game controls are in the center of the game area. They consist of hit, deal and stay. 
+- When the user hovers over the buttons, the colours become inverted and once clicked the button deprreciates. 
+![There are three game control buttons in the centre of the game section. These are hit, deal and stay. The deal button is in the center and is slightly larger than the other two.][game-controls]
+- The user can click the hit button when the hands have been dealt and whilst their total score is 21 or below. This will extract another card from the deck and display it with their other cards, additng the value of the card to their current score. 
+- The user is to click stay if they are happy with their score and want to end the round. This will reveal the opponents cards and an nounce the results of the game. At this point the stay and hit buttons are deactivated and the deal button is reactivated. 
+- If the player draws a card that makes their score exceed 21 then the game will automatically be over and the result will be bust. The opponent will win this round regardless of their total score. 
+- The opponent will pick up additional cards until their score is 17 or above. These additional cards will be sourced from the shuffled pack and placed alongside their other cards which will now all be revealed alongwith their total being displayed in their score area.
+- Depending on each players score, the results will appear  in the middle of the screen as animated text with an associated sound effects to reveal who won.
+- The tally of games won will then be incremented depending on who the winner of the round was. 
+- The user can then press the deal button which will shuffle a new deck and deal a new set of cards, whilst keeping a score of who has won the rounds. 
+- There is a function that allows the ace to reduce from the value of 11 to 1 if the player has one in their hand and their score exceeds 21. 
+- There is a button to reset the entire game if the user wants to clear the previous game scores and restart.
+![At the bottom of the pagem underneath the game area are two buttons which are labelled Game Rules and Restart game.][setting-buttons]
+- The game rules are displayed in a modal which is pops up over the top of the page when clicked showing the game rules. The user can either click the x in the corner or anywhere else on the page to return to the game itself. 
+![The rules for the game appear in a modal which displays the rules in the dark green font on a yellow window which sits above the game screen, which is darkened.][game-rules]
+
+
 [responsive]: assets/images/responsive.png
+[title]: assets/images/screenshots/title.png
+[game-area]: assets/images/screenshots/game-area.png
+[opponent-side]: assets/images/screenshots/opponent-side.png
+[player-side]: assets/images/screenshots/player-side.png
+[game-controls]: assets/images/screenshots/game-control-buttons.png
+[setting-buttons]: assets/images/screenshots/settings-buttons.png
+[game-rules]: assets/images/screenshots/game-rules.png
+
