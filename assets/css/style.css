@@ -61,7 +61,6 @@ h1 {
     max-width: 750px;
     margin: auto;
     display: flex;
-    flex: row wrap;
     justify-content: center;
 }
 
@@ -215,7 +214,7 @@ button:active {
     /* Content color */
     color: #163904;
     /* Fallback background */
-    background-color: rgb (0, 0, 0, );
+    background-color: rgb(0, 0, 0);
     /* Black w/ opacity */
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -253,21 +252,7 @@ button:active {
     /* Positioning */
     margin: 0;
     margin-bottom: 1em;
-    padding-left: 1.5em;
     position: relative;
-
-    /* Creates diamond bullet points */
-    &:after {
-        content: '';
-        height: .4em;
-        width: .4em;
-        background: #163904;
-        display: block;
-        position: absolute;
-        transform: rotate(45deg);
-        top: .25em;
-        left: 0;
-    }
 }
 
 /* The Close Button */

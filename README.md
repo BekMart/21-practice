@@ -336,7 +336,8 @@ All of the above functions have been tested through running the game and using t
 
 To validate the html page on this website, I used the official [W3C validator](https://validator.w3.org/#validate_by_input).
 - When I first put the html pages through the validator, the following errors presented themselves: 
-    - 
+    - There was a syntax error flagged with regards to the meta tags.
+    - I included an ariadescribedby tag to the body to describe what was in it for accessability purposes but this was returned as an error. Thus I deleted it. 
 - All errors have been rectified and the html page now passes through the validator. 
 
 ### CSS
