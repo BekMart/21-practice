@@ -25,7 +25,7 @@ This project is for educational purposes. The main aim is to build a responsive 
     - [Functionality Testing](#functionality)
     - [Compatability Testing](#compatability)
     - [User stories testing](#story-testing)
-    - Issues Found
+    - [Issues Found](#issues)
     - Performance Testing
     - Code Validation
 - Deployment
@@ -310,6 +310,19 @@ All of the above functions have been tested through running the game and using t
 - I want to be able to access the game at anytime on any device
     - The game is responsive and works well on mobile so can be enjoyed anywhere with an internet connection. 
     - Users will play when they are waiting or to remedy boredom, it can be picked up and put down quickly as it is a short game.
+
+<h2 id="issues">Issues Found</h2>
+
+### Solved Bugs
+
+<!-- - Changing the ace value.
+- Creating animated text for results to work more than once -->
+
+### Unfixed Bugs
+
+
+
+
 
 [responsive]: assets/images/responsive.png
 [structure]: assets/images/screenshots/21-screenshot.png
