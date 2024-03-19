@@ -22,7 +22,7 @@ window.onload = function () {
     buildDeck();
     shuffleDeck();
     startGame();
-}
+};
 
 //Create the deck - runs through them in an ordered fashion and returns them this way ("a-c" --> "k-s")
 function buildDeck() {
@@ -36,15 +36,7 @@ function buildDeck() {
         }
     }
     console.log(deck);
-
-    // //Create alt text for each of the cards in deck
-    // for (let a = 0; a < deck.length; a++) {
-    //     deck[a].alt = `"Card is, ", ${value} "of ", ${types}`; 
-    // }
-    // console.log(deck.alt);
 }
-
-
 
 //Function to shuffle deck each time that the page loads or that the deal button is clicked
 function shuffleDeck() {
@@ -70,7 +62,7 @@ function startGame() {
     console.log(hidden); //Displays what hidden card is in console log
 
     //Deal opponent another card
-    for (i = 0; i < 1; i++) {
+    for (let i = 0; i < 1; i++) {
         let cardImg = document.createElement("img"); //Create img element to host card
         let card = deck.pop(); //Select card from shuffled deck
         cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
@@ -82,9 +74,9 @@ function startGame() {
     console.log(opponentSum); //Displays opponents score total in console log
 
     //Deal player 2 cards
-    for (i = 0; i < 2; i++) {
-        cardImg = document.createElement("img"); //Create img elements to host 2 cards
-        card = deck.pop(); //Selects 2 cards from shuffled deck
+    for (let i = 0; i < 2; i++) {
+        let cardImg = document.createElement("img"); //Create img elements to host 2 cards
+        let card = deck.pop(); //Selects 2 cards from shuffled deck
         cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
         document.getElementById("player-hand").append(cardImg); //This places the selected cards on the table in players section
         card.alt = `${card}`;
@@ -94,7 +86,7 @@ function startGame() {
 
         //Displays players current score
         // Consider whether to change the ace to 1 opposed to 11(depending on score and whether player has an ace)
-        playerCards, playerHasAce = adjustPlayerScore(playerCards, playerHasAce);
+        adjustPlayerScore(playerCards, playerHasAce);
         document.getElementById("player-sum").innerText = playerSum; //Displays players current score in the game 
         console.log(playerSum); //Displays players current score in console log
     }
@@ -126,7 +118,7 @@ function hit() {
     playerSum += getValue(card); //Calculates the sum of the players cards
     // Calculates player total score considering adjustPlayerScore function
     // Consider whether to change the ace to 1 opposed to 11(depending on score and whether opponent has an ace)
-    playerCards, playerHasAce = adjustPlayerScore(playerCards, playerHasAce);
+    adjustPlayerScore(playerCards, playerHasAce);
     document.getElementById("player-sum").innerText = playerSum; //Displays players current score in the game 
 
     //If player has a score less than 21 then they can click hit for another card
@@ -152,7 +144,7 @@ function stay() {
         opponentSum += getValue(card); // Calculates opponents score and whether they have an ace
         // Calculates opponents total score considering adjustOpponentScore function
         // Consider whether to change the ace to 1 opposed to 11(depending on score and whether opponent has an ace)
-        opponentCards, opponentHasAce = adjustOpponentScore(opponentCards, opponentHasAce);
+        adjustOpponentScore(opponentCards, opponentHasAce);
     }
 
     //Reveals opponents hidden card
@@ -280,7 +272,7 @@ function getValue(card) {
 function adjustPlayerScore(playerCards, playerHasAce) {
     if (playerSum > 21 && playerHasAce === true) { //If playerSum > 21 & playerHasAce = true then this function will be triggered
         playerHasAce = false; //Updates playerHasAce to false
-        let aceIndex = playerCards.findIndex(item => item.startsWith("a-"))
+        let aceIndex = playerCards.findIndex(item => item.startsWith("a-"));
         if (aceIndex !== -1) {
             playerCards.splice(aceIndex, 1); // Finds and removes ace from playerCards
             playerSum -= 10; // Reduce the player score by 10
@@ -298,7 +290,7 @@ function adjustPlayerScore(playerCards, playerHasAce) {
 function adjustOpponentScore(opponentCards, opponentHasAce) {
     if (opponentSum > 21 && opponentHasAce === true) { //If opponentSum > 21 & opponentHasAce = true then this function will be triggered
         opponentHasAce = false; //Updates opponentHasAce to false
-        let aceIndex = opponentCards.findIndex(item => item.startsWith("a-"))
+        let aceIndex = opponentCards.findIndex(item => item.startsWith("a-"));
         if (aceIndex !== -1) {
             opponentCards.splice(aceIndex, 1); //Finds and removes ace from array
             opponentSum -= 10; //Reduce the opponent score by 10
@@ -357,19 +349,19 @@ var span = document.getElementsByClassName("close")[0]; // Create variable for t
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
     modal.style.display = "block";
-}
+};
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+};
 
 // Created restart game function when user clicks restart game button
 document.getElementById("restart-game").addEventListener("click", restart); //Create event listener for restart game button

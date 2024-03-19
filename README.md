@@ -342,12 +342,21 @@ To validate the html page on this website, I used the official [W3C validator](h
 
 ### CSS
 
-- No errors were returned when passing through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input).
+The CSS code was passed through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input).
+- When this was first tested, the following errors were returned:
+    - There was an incorrect flex command where the players' hands were.
+    - There were syntax errors on the modal background colours.
+    - There were diamond bullet points within the modal, that showed a parseError. I removed these as the text in the modal was already centralised and seperated by a gap, making the bullet points unnecessary and grammatically incorrect. 
+- All errors have been rectified and the css page now passes through the validator. 
 
 ### Javascript
 
-I used the [Javascript validator](https://jshint.com/) to validate my Javascript code.
-
+I used the [Javascript validator](https://jshint.com/) to validate my Javascript code. I needed to conifure the JSHint application so that it acknowledged new Javascript features (ES6).
+- It returned the following errors:
+    - There were a few missing semi-colons.
+    - There were some functions where the variables were unidentified.
+    - There were some syntax errors with regards to functions being called. 
+- All errors have been rectified and the javascript page now passes through the validator.
 
 [Back to Contents](#contents)
 <hr>
