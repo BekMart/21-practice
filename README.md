@@ -382,15 +382,22 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
 
 ## Code
 
-- 
-
-## Content
-
-- 
+- I watched a walkthrough video created by [Kenny Yip Coding](https://www.youtube.com/watch?v=bMYCWccL-3U) which I found on YoTube. I used this as a basis of my javascript code structure for the majority of the structure and functionality and added other code to enhance and personalise the project. 
+- I used the code relating to incrementing scores from the [Love Maths](https://github.com/BekMart/love-maths/blob/main/assets/js/script.js) walkthrough poroject which I completed via the Code Institute website. 
+- I used [W3 schools](https://www.w3schools.com/howto/howto_css_modals.asp) to assist me in creating a modal to host the game rules. 
+- I used [Google Gemini AI](https://gemini.google.com/share/4e8385ecd3c0) to assist me in creating animation that worked to display the results in the center of the screen for a certain amount of time. As well as to share code with me regarding how to add audio files to be triggered when results are revealed.
+- [Google Gemini AI](https://gemini.google.com/app/3aefc29595f663f6) was also used to help me create a function to reduce the value of the ace card by 10 if the player has a score exceeding 21 in their hand. 
 
 <h2 id="media">Media</h2>
 
-- The favicon I used was sourced from 
+- The favicon used was sourced from [Flaticon](https://www.flaticon.com/free-icons/playing-cards) and created by Vectorslab.
+- The background image that was used for this project was found on [Adobe Stock](https://stock.adobe.com/uk/search/images?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=1&filters%5Bcontent_type%3Azip_vector%5D=1&filters%5Bcontent_type%3Aimage%5D=1&order=relevance&safe_search=1&k=blackjack+table&is_recent_search=1&search_type=recentsearch&search_page=1&get_facets=0&asset_id=420867335).
+- The card images were sourced from [Adobe Stock](https://stock.adobe.com/uk/search?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=1&filters%5Bcontent_type%3Azip_vector%5D=1&filters%5Bcontent_type%3Avideo%5D=1&filters%5Bcontent_type%3Atemplate%5D=1&filters%5Bcontent_type%3A3d%5D=1&filters%5Bcontent_type%3Aimage%5D=1&k=pack+of+playing+cards&order=relevance&safe_search=1&limit=100&search_page=1&search_type=usertyped&acp=&aco=pack+of+playing+cards&get_facets=0&asset_id=220211310).
+- All of the audio files that are attached to this page were sourced from YouTube and recorded and edited on Audacity. The links to where the sounds were found are listed below:
+    - The file for [dealing cards](https://www.youtube.com/watch?v=yapNluM17bE).
+    - When the player [wins](https://www.youtube.com/watch?v=jRCJe4cXSd4).
+    - When the player [loses or goes bust](https://www.youtube.com/watch?v=1ar7fqJXD50).
+    - If the game ends as a [draw](https://www.youtube.com/watch?v=qYXKzyrtZK8).
 
 [Back to Contents](#contents)
 <hr>
