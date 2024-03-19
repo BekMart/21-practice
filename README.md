@@ -26,8 +26,8 @@ This project is for educational purposes. The main aim is to build a responsive 
     - [Compatability Testing](#compatability)
     - [User stories testing](#story-testing)
     - [Issues Found](#issues)
-    - Performance Testing
-    - Code Validation
+    - [Performance Testing](#performance)
+    - [Code Validation](#validation)
 - Deployment
 - Credits
 
@@ -320,8 +320,36 @@ All of the above functions have been tested through running the game and using t
 
 ### Unfixed Bugs
 
+<h2 id="performance">Performance Testing</h2>
+
+### Lighthouse
+
+- I completed an audit through Chrome Devtools using the Lighthouse program. 
+- The performance value sometimes varies.
+- The results were as follows when last checked-
+
+![The performance is amber at 80. Acessability is green at 91. Best practice is green scoring 96. SEA is green at 90.][lighthouse-results1]
+
+<h2 id="validation">Code Validation</h2>
+
+### HTML
+
+To validate the html page on this website, I used the official [W3C validator](https://validator.w3.org/#validate_by_input).
+- When I first put the html pages through the validator, the following errors presented themselves: 
+    - 
+- All errors have been rectified and the html page now passes through the validator. 
+
+### CSS
+
+- No errors were returned when passing through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input).
+
+### Javascript
+
+I used the [Javascript validator](https://jshint.com/) to validate my Javascript code.
 
 
+[Back to Contents](#contents)
+<hr>
 
 
 [responsive]: assets/images/responsive.png
@@ -332,3 +360,4 @@ All of the above functions have been tested through running the game and using t
 [bust]: assets/images/screenshots/bust.png
 [setting-buttons]: assets/images/screenshots/settings-buttons.png
 [game-rules]: assets/images/screenshots/game-rules.png
+[lighthouse-results1]: assets/images/screenshots/lighthouse1.png
