@@ -277,38 +277,39 @@ All of the above functions have been tested through running the game and using t
 
 <h2 id="story-testing">User stories testing</h2>
 
-<!-- ### As a website designer..
+### As a website designer..
 
-- I want to represent PILE in a way that will attract new and returning users to the website.
-    - Attractive pictures and layout throughout the pages and a simple, interactive interface which is enjoyable to use.
-- I need to ensure that the information available is up to date, concise and compelling.
-    - Up to date content is added to the website so fans will return regularly to check for new posts. 
-- I want users to be able to explore and use all functions within the website intuitively.
-    - Simple, consistent layout and easy to use navigation implemented.
+- I want to create an easy to use game which is fun and interactive so that users will return
+    - A simple and consistent layout has been used, with clear seperation between the opponents and users side, using symmetry to make the game more aesthetically appealing. 
+    - All buttons are labelled clearly and styled the same. 
+    - Animated text is used along with audio to display results, adding more depth and excitment to the game. 
+- I want to ensure that the game works efficiently and correctly at all times 
+    - Many tests have been conducted to ensure that all functionaility works and bugs have been fixed to ensure user will have a positive experience throughout the game process. 
+- I want the game to be responsive on all devices so that it can be enjoyed anywhere 
+    - Relative measurements to the screen size have been used whilst having a maximum and minimum size for different elements and sections to ensure they hold their integrity.
+    - A media query has also been used to style some of the buttons and features to ensure that they fit nicely on the page at all tiomes. 
 
 ### As a new user..
 
-- I want to find information about PILE and discover their back catalogue of music and associated videos.
-    - The entire back catalogue is displayed on the music page, with links to listen to the audio via spotify.
-    - New music videos are posted and available to watch on the updates section.
-- I want to follow the band via my preffered social media and audio platforms. 
-    - Links to nine of PILE's social media and audio platforms for users to add and follow.
-- I want details of any upcoming shows to watch them perform.
-    - An easy to follow table is located in the tour page stating when and where PILE are performing. 
-    - There are links to follow to purchase tickets for the events. 
-- I want to subscribe to a newsletter for up to date information about the band. 
-    - A simple form in the newsletter section for users to complete to subcribe to the newsletter. 
-
+- I want to be able to easily find and understand the rules of the game
+    - The game rules are clearly labelled as a button, at the bottom of the screen.
+    - When clicked they appear on the screen as a modal.
+    - Each of the bullet points are clear and concise so that the user can easy find and understand the rules to apply them to the game. 
+- I want to easily navigate around the page and play the game
+    - The webpage layout is simple and intuitive to use due to it only containing the absolutely necessary features and having a simple symmetrical layout.
+    - The buttons are all laybelled clearly and the game rules explains how and when to use them in simple terms.  
+- I want to be able to compete against the computer and know what my score is
+    - The users current score is always displayed on the screen to help them decide whether or not they want to get another card or stay with their hand. 
+    - The opponent score is revealed once the round is over, so the user can see what their opponent had when they discover the results. 
+    - A games won tally is kept on both sides of the game so that the player can try to beat the computer over a certain number of rounds.
 
 ### As a returning user...
 
-- I want updates relating to any new audio or video releases from PILE.
-    - All up to date information about PILE and any new releases is documented on the home page.
-    - This will inform fans of any upcoming releases and leak exclusive information and content from the band. 
-- I want details of any upcoming shows to watch them perform and where to purchase tickets.
-    - All tour dates will be advertised on the tour page which is easy to follow with links to tickets for upcoming events. 
-- I want to use this website as a portal to PILE's other social media and audio platforms. 
-    - Returning users can use this website as a portal to other links relating to the band.  -->
+- I want to compete against the computer, to try and beat their score and any previously gained scores 
+    - Users may want to return to the game to beat their previous scores achieved against the opponent. 
+- I want to be able to access the game at anytime on any device
+    - The game is responsive and works well on mobile so can be enjoyed anywhere with an internet connection. 
+    - Users will play when they are waiting or to remedy boredom, it can be picked up and put down quickly as it is a short game.
 
 [responsive]: assets/images/responsive.png
 [structure]: assets/images/screenshots/21-screenshot.png
