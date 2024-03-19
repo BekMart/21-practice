@@ -56,7 +56,6 @@ function startGame() {
     hidden = deck.pop(); //Will take a card from the end of the shuffled deck and asign it to the opponents hidden card
     hiddenImg.src = "assets/images/back.png"; //This is where the card image files are located
     document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
-    hidden.alt = `${hidden}`;
     opponentCards.push(hidden); //Gets hidden card and puts its into an array
     opponentSum += getValue(hidden); //Will consider hidden card value to get the opponents sum and whether theres an ace
     console.log(hidden); //Displays what hidden card is in console log

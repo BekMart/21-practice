@@ -29,7 +29,7 @@ This project is for educational purposes. The main aim is to build a responsive 
     - [Performance Testing](#performance)
     - [Code Validation](#validation)
 - [Deployment](#deployment)
-- Credits
+- [Credits](#credits)
 
 <h1 id="UX">UX</h1>
 
@@ -364,7 +364,7 @@ I used the [Javascript validator](https://jshint.com/) to validate my Javascript
 <h1 id="deployment">Deployment</h1>
 
 - The website was created in Gitpod and deployed to GitHub pages via the terminal. Once in GitHub, the steps to deploy were as follows:
-    - In the GitHub repository 'pile_fansite', navigate to the Settings tab
+    - In the GitHub repository '21_practice', navigate to the Settings tab
     - On the left hand side, click on 'Pages' in the 'Code and automation' section
     - Ensure that 'Source' is set to 'Deploy from a branch'
     - Select 'main' in the branch section and '/(root)' in the folder section, using the drop-down menus
@@ -373,11 +373,27 @@ I used the [Javascript validator](https://jshint.com/) to validate my Javascript
     - Click the 'Deployments' button found on the right hand site of the page
     - At the top of this page will be a link to the deployed website
 
-Visit the live website [here.](https://bekmart.github.io/pile_fansite/)
+Visit the live website [here.](https://bekmart.github.io/21-practice/)
 
 [Back to Contents](#contents)
 <hr>
 
+<h1 id="credits">Credits</h1>
+
+## Code
+
+- 
+
+## Content
+
+- 
+
+<h2 id="media">Media</h2>
+
+- The favicon I used was sourced from 
+
+[Back to Contents](#contents)
+<hr>
 
 [responsive]: assets/images/responsive.png
 [structure]: assets/images/screenshots/21-screenshot.png
