@@ -24,7 +24,7 @@ This project is for educational purposes. The main aim is to build a responsive 
 - [Testing](#testing)
     - [Functionality Testing](#functionality)
     - [Compatability Testing](#compatability)
-    - User stories testing
+    - [User stories testing](#story-testing)
     - Issues Found
     - Performance Testing
     - Code Validation
@@ -180,7 +180,7 @@ The website contains the following features:
 - The game rules are displayed in a modal which pops up over the top of the page when clicked showing the game rules. The user can either click the x in the corner or anywhere else on the page to return to the game itself. 
 ![The rules for the game appear in a modal which displays the rules in the dark green font in a yellow window which sits above the game screen, which is darkened.][game-rules]
 
-<h1 id="#features-to-implement">Features left to Implement</h1>
+<h1 id="features-to-implement">Features left to Implement</h1>
 
 ## Betting aspect
 
@@ -219,6 +219,10 @@ Where the font was sourced from.
 
 Playing cards favicon created by Vectorslab - Flaticon.
 
+## Audacity
+
+Used to record and save sound clips from YouTube.
+
 ## Chrome DevTools
 
 Used to help build the website and assisted in finding and fixing any bugs. 
@@ -243,6 +247,7 @@ AI used to assist me in debugging elements in my code.
     - The opponent will pick up additional cards whilst their score is below 17.
     - There is a function that will automatically calculate the value of an ace as 1 instead of 11 if the score of either player exceeds 21 and they have an ace in their hand.
     - The players score is calculated and displayed throughout the duration of the game. There is a function which calculates this based on the card selected and the value that it holds. 
+    - If the players score exceeds 21 then the game will automatically end and the "BUST!" message will be displayed, meaning that the opponent has won, regardless of their score. 
     - The opponents score is revealed after the stay button has been activated and their cards have been revealed.
     - There is a function to record who won the round and increment their games won tally to show how many rounds have been won by each contestant. 
     - Once the scores are calculated and revealed an animated message is displayed in the middle of the screen which grows from the center and disappears after 3 seconds. 
@@ -270,6 +275,40 @@ All of the above functions have been tested through running the game and using t
     - Iphone 13
     - MacBook Pro
 
+<h2 id="story-testing">User stories testing</h2>
+
+<!-- ### As a website designer..
+
+- I want to represent PILE in a way that will attract new and returning users to the website.
+    - Attractive pictures and layout throughout the pages and a simple, interactive interface which is enjoyable to use.
+- I need to ensure that the information available is up to date, concise and compelling.
+    - Up to date content is added to the website so fans will return regularly to check for new posts. 
+- I want users to be able to explore and use all functions within the website intuitively.
+    - Simple, consistent layout and easy to use navigation implemented.
+
+### As a new user..
+
+- I want to find information about PILE and discover their back catalogue of music and associated videos.
+    - The entire back catalogue is displayed on the music page, with links to listen to the audio via spotify.
+    - New music videos are posted and available to watch on the updates section.
+- I want to follow the band via my preffered social media and audio platforms. 
+    - Links to nine of PILE's social media and audio platforms for users to add and follow.
+- I want details of any upcoming shows to watch them perform.
+    - An easy to follow table is located in the tour page stating when and where PILE are performing. 
+    - There are links to follow to purchase tickets for the events. 
+- I want to subscribe to a newsletter for up to date information about the band. 
+    - A simple form in the newsletter section for users to complete to subcribe to the newsletter. 
+
+
+### As a returning user...
+
+- I want updates relating to any new audio or video releases from PILE.
+    - All up to date information about PILE and any new releases is documented on the home page.
+    - This will inform fans of any upcoming releases and leak exclusive information and content from the band. 
+- I want details of any upcoming shows to watch them perform and where to purchase tickets.
+    - All tour dates will be advertised on the tour page which is easy to follow with links to tickets for upcoming events. 
+- I want to use this website as a portal to PILE's other social media and audio platforms. 
+    - Returning users can use this website as a portal to other links relating to the band.  -->
 
 [responsive]: assets/images/responsive.png
 [structure]: assets/images/screenshots/21-screenshot.png
