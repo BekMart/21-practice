@@ -28,7 +28,7 @@ This project is for educational purposes. The main aim is to build a responsive 
     - [Issues Found](#issues)
     - [Performance Testing](#performance)
     - [Code Validation](#validation)
-- Deployment
+- [Deployment](#deployment)
 - Credits
 
 <h1 id="UX">UX</h1>
@@ -357,6 +357,23 @@ I used the [Javascript validator](https://jshint.com/) to validate my Javascript
     - There were some functions where the variables were unidentified.
     - There were some syntax errors with regards to functions being called. 
 - All errors have been rectified and the javascript page now passes through the validator.
+
+[Back to Contents](#contents)
+<hr>
+
+<h1 id="deployment">Deployment</h1>
+
+- The website was created in Gitpod and deployed to GitHub pages via the terminal. Once in GitHub, the steps to deploy were as follows:
+    - In the GitHub repository 'pile_fansite', navigate to the Settings tab
+    - On the left hand side, click on 'Pages' in the 'Code and automation' section
+    - Ensure that 'Source' is set to 'Deploy from a branch'
+    - Select 'main' in the branch section and '/(root)' in the folder section, using the drop-down menus
+    - Click the save button
+    - Return to the Code tab and wait for a few minutes for the build to finish before refreshing the repository page
+    - Click the 'Deployments' button found on the right hand site of the page
+    - At the top of this page will be a link to the deployed website
+
+Visit the live website [here.](https://bekmart.github.io/pile_fansite/)
 
 [Back to Contents](#contents)
 <hr>
