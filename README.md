@@ -315,10 +315,36 @@ All of the above functions have been tested through running the game and using t
 
 ### Solved Bugs
 
-<!-- - Changing the ace value.
-- Creating animated text for results to work more than once -->
+#### Adjusting ace value function
+
+- Originally I duplicated the method from 'Kenny Yip's Coding' with regards to checking to see if there was an ace present in the hand and then reducing the score by 10 if the score was above 21. 
+    - He created a simple if statement function that would return a number to represent if the ace was present in the hand. 
+    - Another function which consisted of a while statment that would be triggered if the scre was greater than 21 and an ace was present in the hand, then it would reduce the score by 10 and the ace count by 1.  
+    - This was only reducing their sum but not acknowledging that the ace had been used up so each time the sum exceeded 21, it would repeatedly reduce by 10. 
+- I contacted Code Institute Tutor Support for assistance with this issue and they advised me to create an array with the cards in the hand so that I could remove the ace physically from the hand to stop the function from repeating. [Here is an example they shared with me.](https://jsbin.com/livizaledu/edit?js,console)
+- I also sourced help from Gogle Gemini AI for additional support with this issue. [Here is the conversation feed.](https://gemini.google.com/app/3aefc29595f663f6)
+    - I created empty arrays which hold the individual cards that both players had in their hands. 
+    - I checked whether there was an ace in the hands within the getValue function, where the value of the cards were being checked, before their integer value was returned. This would iterate through the hand each time a card was revealed to check to see if it was an ace and if so, it would change the boolean value to true. 
+    - I changed the structure of the adjustScore function, putting the relevant arguments in the parethesis which would be required to conduct the function. (playerSum, playerCards, playerHasAce).
+        - Within this function there was a nested if statment which would find any cards within the array that were an ace and remove them.
+        - The boolean value would return back to false again. 
+        - The score would be reduced by 10. 
+- Using the console.log I could assertain that the sum was being reduced, the boolean was changing to false and the ace card was removed from the array. 
+However, immediately after the function had been executed, the sum would return to its prior value. 
+- I contacted Code Institute Tutor Support again about this issue and they advised me to remove the sum arguement from the parenthasis in the adjustScore function as it was returning to the global variable value immediately after the function had been completed, rather than updating it. 
+- This solved the issue and now it works as intended. 
+
+#### Ensuring that the animated text for results would execute more than just once
+
+- I wanted to add animated text to my website to display the game rersults on the screen using keyframes. I researched this on [W3 Schools.](https://www.w3schools.com/css/css3_animations.asp)
+- I created the animation that I was happy with within css, however, it would only trigger a single time after the first round.
+- I used Google Gemini to help me solbve this issue. [Here is the conversation feed.](https://gemini.google.com/share/4e8385ecd3c0)
+    - I needed to create a class to target in css.
+    - In the Javascript code, after the results have been called, I had to set a time restriction on the animation to enable the animation to start and stop each time a round is over and the results are called. 
 
 ### Unfixed Bugs
+
+<!-- Fix the ace count from boolean to number again so that if I have two aces at the start, it will allow both of them to reduce to 1 if necessary -->
 
 <h2 id="performance">Performance Testing</h2>
 
@@ -386,7 +412,7 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
 - I used the code relating to incrementing scores from the [Love Maths](https://github.com/BekMart/love-maths/blob/main/assets/js/script.js) walkthrough poroject which I completed via the Code Institute website. 
 - I used [W3 schools](https://www.w3schools.com/howto/howto_css_modals.asp) to assist me in creating a modal to host the game rules. 
 - I used [Google Gemini AI](https://gemini.google.com/share/4e8385ecd3c0) to assist me in creating animation that worked to display the results in the center of the screen for a certain amount of time. As well as to share code with me regarding how to add audio files to be triggered when results are revealed.
-- [Google Gemini AI](https://gemini.google.com/app/3aefc29595f663f6) was also used to help me create a function to reduce the value of the ace card by 10 if the player has a score exceeding 21 in their hand. 
+- [Google Gemini AI](https://gemini.google.com/app/3aefc29595f663f6) was used to help me create a function to reduce the value of the ace card by 10 if the player has a score exceeding 21 in their hand. 
 
 <h2 id="media">Media</h2>
 
