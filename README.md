@@ -344,7 +344,9 @@ However, immediately after the function had been executed, the sum would return 
 
 ### Unfixed Bugs
 
-<!-- Fix the ace count from boolean to number again so that if I have two aces at the start, it will allow both of them to reduce to 1 if necessary -->
+- Although I have added alt attributes to each of the card objects, when they were created into the deck, when I have completed the lighthouse audit, it states that the image elements do have have alt attributes.
+
+![Screenshot of accessibility score with note stating that image elements do not have alt attributes but in the consol section below, a list of the card cards which have an attached alt attribute.][unfixed-bug]
 
 <h2 id="performance">Performance Testing</h2>
 
@@ -437,3 +439,4 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
 [setting-buttons]: assets/images/screenshots/settings-buttons.png
 [game-rules]: assets/images/screenshots/game-rules.png
 [lighthouse-results1]: assets/images/screenshots/lighthouse1.png
+[unfixed-bug]: assets/images/screenshots/unfixed-bug-screenshot.png
