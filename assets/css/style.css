@@ -268,14 +268,14 @@ h2 {
     color: #CFB006;
     -webkit-text-stroke: 2px #C20202;
     font-weight: 300;
-    font-size: 200%;
+    font-size: 300%;
 }
 
 h3 {
     color: #CFB006;
     -webkit-text-stroke: 2px #C20202;
     font-weight: 200;
-    font-size: 150%;
+    font-size: 200%;
 }
 
 /* Ban icon */
@@ -296,7 +296,6 @@ p {
 /* Link back to home page */
 a {
     color: #CFB006;
-    text-decoration: none;
 }
 
 @media (min-width: 470px) {
