@@ -180,6 +180,13 @@ The website contains the following features:
 - The game rules are displayed in a modal which pops up over the top of the page when clicked showing the game rules. The user can either click the x in the corner or anywhere else on the page to return to the game itself. 
 ![The rules for the game appear in a modal which displays the rules in the dark green font in a yellow window which sits above the game screen, which is darkened.][game-rules]
 
+### 404 error page
+
+- A 404 error page appears in response to the wrong url being input. 
+    - It has the same design and style as the rest of the website.
+    - It contains a hyperlink which when clicked, takes the user back to the main landing page. 
+![Screenshot of the 404 error page which appears when the wrong url has been input. There is a message explaining this with a link to the main page.][404]
+
 <h1 id="features-to-implement">Features left to Implement</h1>
 
 ## Betting aspect
@@ -452,3 +459,4 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
 [game-rules]: assets/images/screenshots/game-rules.png
 [unfixed-bug]: assets/images/screenshots/unfixed-bug-screenshot.png
 [lighthouse]: assets/images/screenshots/lighthouse.png
+[404]: assets/images/screenshots/404.png
