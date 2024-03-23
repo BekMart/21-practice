@@ -264,18 +264,12 @@ button:active {
 }
 
 /* 404 Error page */
-h2 {
-    color: #CFB006;
-    -webkit-text-stroke: 2px #C20202;
-    font-weight: 300;
-    font-size: 300%;
-}
-
+h2,
 h3 {
     color: #CFB006;
-    -webkit-text-stroke: 2px #C20202;
-    font-weight: 200;
-    font-size: 200%;
+    -webkit-text-stroke: 1px #C20202;
+    font-weight: 300;
+    font-size: 300%;
 }
 
 /* Ban icon */
