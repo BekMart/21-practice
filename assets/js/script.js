@@ -30,12 +30,20 @@ function buildDeck() {
     let types = ["c", "d", "h", "s"];
     deck = [];
 
+    // Creates deck as an object with id, value & type values
     for (let i = 0; i < types.length; i++) {
         for (let x = 0; x < values.length; x++) {
-            deck.push(values[x] + "-" + types[i]);
+            const cardID = values[x] + "-" + types[i]; // Each card will have an ID which is the value and type, separated with a hyphen
+            const card = {
+                id: cardID,
+                value: values[x],
+                type: types[i],
+            };
+            deck.push(card); // All card objects are pushed into the deck array
         }
     }
     console.log(deck);
+    return deck;
 }
 
 //Function to shuffle deck each time that the page loads or that the deal button is clicked
@@ -57,17 +65,17 @@ function startGame() {
     hiddenImg.src = "assets/images/back.png"; //This is where the card image files are located
     document.getElementById("opponent-hand").append(hiddenImg); //This is the location of where to place the selected card
     opponentCards.push(hidden); //Gets hidden card and puts its into an array
-    opponentSum += getValue(hidden); //Will consider hidden card value to get the opponents sum and whether theres an ace
+    opponentSum += getOpponentValue(hidden); //Will consider hidden card value to get the opponents sum and whether theres an ace
     console.log(hidden); //Displays what hidden card is in console log
 
     //Deal opponent another card
     for (let i = 0; i < 1; i++) {
-        let cardImg = document.createElement("img"); //Create img element to host card
+        let cardImg = document.createElement("img"); //Create img elements to host another card
         let card = deck.pop(); //Select card from shuffled deck
-        cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
+        cardImg.src = "assets/images/cards/" + card.id + ".png"; //This is where the card image files are located
         document.getElementById("opponent-hand").append(cardImg); //This is the location of where to place the selected card
         opponentCards.push(card); //Gets card and puts its into an array
-        opponentSum += getValue(card); //Calculates the sum of the opponents cards and is it an ace
+        opponentSum += getOpponentValue(card); //Calculates the sum of the opponents cards and is it an ace
     }
     console.log(opponentSum); //Displays opponents score total in console log
 
@@ -75,15 +83,15 @@ function startGame() {
     for (let i = 0; i < 2; i++) {
         let cardImg = document.createElement("img"); //Create img elements to host 2 cards
         let card = deck.pop(); //Selects 2 cards from shuffled deck
-        cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
+        cardImg.src = "assets/images/cards/" + card.id + ".png"; //This is where the card image files are located
         document.getElementById("player-hand").append(cardImg); //This places the selected cards on the table in players section
         playerCards.push(card); //Puts cards into an array
-        playerSum += getValue(card); //Calculates the sum of the players cards
+        playerSum += getPlayerValue(card); //Calculates the sum of the players cards
         playShuffle(); // Plays audio of cards being shuffled/dealt
 
         //Displays players current score
         // Consider whether to change the ace to 1 opposed to 11(depending on score and whether player has an ace)
-        adjustPlayerScore(playerCards, playerHasAce);
+        adjustPlayerScore(playerCards);
         document.getElementById("player-sum").innerText = playerSum; //Displays players current score in the game 
         console.log(playerSum); //Displays players current score in console log
     }
@@ -105,16 +113,16 @@ function hit() {
     //If you can hit and you click the button then a card will be drawn from the deck and displayed
     let cardImg = document.createElement("img"); //Create img elements to host another player card
     let card = deck.pop(); //Select card from shuffled deck
-    cardImg.src = "assets/images/cards/" + card + ".png"; //This is where the card image files are located
+    cardImg.src = "assets/images/cards/" + card.id + ".png"; //This is where the card image files are located
     document.getElementById("player-hand").append(cardImg); //Places the selected card on the table in players section
     playDealCard(); //Plays audio sound for a single card being dealt
     playerCards.push(card); //Puts cards into an array
 
     //Calculates players score
-    playerSum += getValue(card); //Calculates the sum of the players cards
+    playerSum += getPlayerValue(card); //Calculates the sum of the players cards
     // Calculates player total score considering adjustPlayerScore function
     // Consider whether to change the ace to 1 opposed to 11(depending on score and whether opponent has an ace)
-    adjustPlayerScore(playerCards, playerHasAce);
+    adjustPlayerScore(playerCards);
     document.getElementById("player-sum").innerText = playerSum; //Displays players current score in the game 
 
     //If player has a score less than 21 then they can click hit for another card
@@ -131,20 +139,20 @@ function stay() {
     while (opponentSum < 17) {
         let cardImg = document.createElement("img"); //Creates image element to host additional cards if necessary
         let card = deck.pop(); // Selects cards from shuffled deck
-        cardImg.src = "assets/images/cards/" + card + ".png"; //Where to obtain the associated card image
+        cardImg.src = "assets/images/cards/" + card.id + ".png"; //Where to obtain the associated card image
         document.getElementById("opponent-hand").append(cardImg); //Puts the image on the table in opponents hand
         playDealCard(); //Plays audio sound for a single card being dealt if a card is placed on table
         opponentCards.push(card); //Puts card in an array
 
-        opponentSum += getValue(card); // Calculates opponents score and whether they have an ace
+        opponentSum += getOpponentValue(card); // Calculates opponents score and whether they have an ace
         // Calculates opponents total score considering adjustOpponentScore function
         // Consider whether to change the ace to 1 opposed to 11(depending on score and whether opponent has an ace)
-        adjustOpponentScore(opponentCards, opponentHasAce);
+        adjustOpponentScore(opponentCards);
     }
 
     //Reveals opponents hidden card
     let reveal = document.createElement("img"); //Creates variable for revealed card image
-    reveal.src = "assets/images/cards/" + hidden + ".png"; //Gets revealed card image from hidden variable
+    reveal.src = "assets/images/cards/" + hidden.id + ".png"; //Gets revealed card image from hidden variable
     document.getElementById("opponent-hand").prepend(reveal); //Puts revealed card at the begining of opponents hand
 
     //Discards the back image of hidden card
@@ -234,22 +242,39 @@ function deal() {
 }
 
 //Will get the value of the card that is dealt
-function getValue(card) {
-    let data = card.split("-"); //This will create an array with 2 values. First value is number/second value is suite
-    let value = data[0]; //This will extract the number value from the card
+function getPlayerValue(card) {
+    let value = Object.keys(card);
+    console.log(card.value);
 
     //If value is not a number then it'll be a = 11 OR j/q/k = 10
-    if (isNaN(value)) {
-        if (value === "a") {
-            // Check for aces in both player and opponent cards (moved outside the inner if)
+    if (isNaN(card.value)) {
+        if (card.value == 'a') {
+            //Check to see if there is an ace in the players hand - if so, itll change the playerHasAce boolean to true and enable adjustPlayerScore function
             for (let i = 0; i < playerCards.length; i++) {
-                if (playerCards[i].startsWith("a-")) {
+                if (card.value == 'a') {
                     playerHasAce = true;
                     continue;
                 }
             }
+            return 11;
+        } else {
+            return 10;
+        }
+    }
+    //If it is a number value then we just want to get that integer to reflect the value of the card
+    return parseInt(card.value);
+}
+
+function getOpponentValue(card) {
+    let value = Object.keys(card);
+    console.log(card.value);
+
+    //If value is not a number then it'll be a = 11 OR j/q/k = 10
+    if (isNaN(card.value)) {
+        if (card.value == 'a') {
+            //Check to see if there is an ace in the opponents hand - if so, itll change the opponentHasAce boolean to true and enable adjustOpponentScore function
             for (let i = 0; i < opponentCards.length; i++) {
-                if (opponentCards[i].startsWith("a-")) {
+                if (card.value == 'a') {
                     opponentHasAce = true;
                     continue;
                 }
@@ -260,44 +285,43 @@ function getValue(card) {
         }
     }
     //If it is a number value then we just want to get that integer to reflect the value of the card
-    return parseInt(value);
+    return parseInt(card.value);
 }
 
-//Function to reduce the playerSum by 10, change playerHasAce to false and remove the ace from array
-function adjustPlayerScore(playerCards, playerHasAce) {
-    if (playerSum > 21 && playerHasAce === true) { //If playerSum > 21 & playerHasAce = true then this function will be triggered
-        playerHasAce = false; //Updates playerHasAce to false
-        let aceIndex = playerCards.findIndex(item => item.startsWith("a-"));
-        if (aceIndex !== -1) {
-            playerCards.splice(aceIndex, 1); // Finds and removes ace from playerCards
-            playerSum -= 10; // Reduce the player score by 10
+// Function to reduce the players score by 10, change playerHasAce back to false & remove ace from playerCards array
+function adjustPlayerScore(playerCards) {
+    if (playerSum > 21 && playerHasAce === true) { //Function will trigger if player score is above 21 and they have an ace in their hand
+        const aceIndex = playerCards.findIndex(card => card.value === "a"); // Find index by card.value
+        playerHasAce = false; // Change playerHasAce boolean back to false so that it doesn't repeat whenever 21 is exceeded
+        if (aceIndex !== -1) { // If a value == 'a' is found
+            playerCards.splice(aceIndex, 1); // Remove ace card
+            playerSum -= 10; // Reduce score by 10
+            console.log("player= ", {
+                playerCards,
+                playerHasAce,
+                playerSum,
+            }); //Displays ammended variables in console log
         }
-        console.log("player= ", {
-            playerCards,
-            playerSum,
-            playerHasAce
-        }); //Displays results in console log
     }
-    return playerCards, playerHasAce; //Returns new values for array, score and has ace
 }
 
-//Function to reduce the opponentSum by 10, change opponentHasAce to false and remove the ace from array
-function adjustOpponentScore(opponentCards, opponentHasAce) {
-    if (opponentSum > 21 && opponentHasAce === true) { //If opponentSum > 21 & opponentHasAce = true then this function will be triggered
-        opponentHasAce = false; //Updates opponentHasAce to false
-        let aceIndex = opponentCards.findIndex(item => item.startsWith("a-"));
-        if (aceIndex !== -1) {
-            opponentCards.splice(aceIndex, 1); //Finds and removes ace from array
-            opponentSum -= 10; //Reduce the opponent score by 10
+// Function to reduce the opponents score by 10, change opponentHasAce back to false & remove ace from opponentCards array
+function adjustOpponentScore(opponentCards) {
+    if (opponentSum > 21 && opponentHasAce === true) { //Function will trigger if opponent score is above 21 & they have an ace in their hand
+        const aceIndex = opponentCards.findIndex(card => card.value === "a"); // Find index by card.value
+        opponentHasAce = false; //Change opponentHasAce boolena value back to false so that it doesn't repeat whenever 21 is exceeded
+        if (aceIndex !== -1) { // If a value == 'a' is found
+            opponentCards.splice(aceIndex, 1); // Remove ace card
+            opponentSum -= 10; // Reduce score
+            console.log("opponent= ", {
+                opponentCards,
+                opponentHasAce,
+                opponentSum,
+            }); //Displays ammended variables in console log
         }
-        console.log("opponents= ", {
-            opponentCards,
-            opponentSum,
-            opponentHasAce
-        }); //Displays results in console log
     }
-    return opponentCards, opponentHasAce; //Returns new values for array, score and has ace
 }
+
 
 //Gets old scores from DOM and increments them by one depending on win/lose
 function incrementOpponentScore() {
