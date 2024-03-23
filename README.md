@@ -414,7 +414,8 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
 - I used the code relating to incrementing scores from the [Love Maths](https://github.com/BekMart/love-maths/blob/main/assets/js/script.js) walkthrough poroject which I completed via the Code Institute website. 
 - I used [W3 schools](https://www.w3schools.com/howto/howto_css_modals.asp) to assist me in creating a modal to host the game rules. 
 - I used [Google Gemini AI](https://gemini.google.com/share/4e8385ecd3c0) to assist me in creating animation that worked to display the results in the center of the screen for a certain amount of time. As well as to share code with me regarding how to add audio files to be triggered when results are revealed.
-- [Google Gemini AI](https://gemini.google.com/app/3aefc29595f663f6) was used to help me create a function to reduce the value of the ace card by 10 if the player has a score exceeding 21 in their hand. 
+- [Code Institute Tutor support](https://jsbin.com/livizaledu/edit?js,console) and [Google Gemini AI](https://gemini.google.com/app/3aefc29595f663f6) were both used to help me create a function to reduce the value of the ace card by 10 if the player has a score exceeding 21 and held an ace in their hand. 
+- [Google Gemini AI](https://gemini.google.com/app/525ff70d5cb6700d) was used to turn the arrays into objects so that I could asign id and alt attributes to them for accessability. 
 
 <h2 id="media">Media</h2>
 

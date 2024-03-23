@@ -241,7 +241,7 @@ function deal() {
 
 //Will get the value of the card that is dealt
 function getPlayerValue(card) {
-    let value = Object.keys(card);
+    Object.keys(card);
 
     //If value is not a number then it'll be a = 11 OR j/q/k = 10
     if (isNaN(card.value)) {
@@ -263,7 +263,7 @@ function getPlayerValue(card) {
 }
 
 function getOpponentValue(card) {
-    let value = Object.keys(card);
+    Object.keys(card);
 
     //If value is not a number then it'll be a = 11 OR j/q/k = 10
     if (isNaN(card.value)) {
