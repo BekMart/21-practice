@@ -421,7 +421,7 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
 - I used [W3 schools](https://www.w3schools.com/howto/howto_css_modals.asp) to assist me in creating a modal to host the game rules. 
 - I used [Google Gemini AI](https://gemini.google.com/share/4e8385ecd3c0) to assist me in creating animation that worked to display the results in the center of the screen for a certain amount of time. As well as to share code with me regarding how to add audio files to be triggered when results are revealed.
 - [Code Institute Tutor support](https://jsbin.com/livizaledu/edit?js,console) and [Google Gemini AI](https://gemini.google.com/app/3aefc29595f663f6) were both used to help me create a function to reduce the value of the ace card by 10 if the player has a score exceeding 21 and held an ace in their hand. 
-- [Google Gemini AI](https://gemini.google.com/app/525ff70d5cb6700d) was used to turn the arrays into objects so that I could asign id and alt attributes to them for accessability. 
+- I sourced code from [Educative](https://www.educative.io/answers/how-to-get-keys-values-and-entries-in-javascript-object) and [Google Gemini AI](https://gemini.google.com/app/525ff70d5cb6700d) to turn the arrays into objects so that I could assign id and alt attributes to them for accessability. 
 
 <h2 id="media">Media</h2>
 
@@ -437,7 +437,7 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
 [Back to Contents](#contents)
 <hr>
 
-[responsive]: assets/images/responsive.png
+[responsive]: assets/images/screenshots/responsive.png
 [structure]: assets/images/screenshots/21-screenshot.png
 [opponent-side]: assets/images/screenshots/opponent-side.png
 [player-side]: assets/images/screenshots/player-side.png
