@@ -281,7 +281,7 @@ i {
 }
 
 /* Text */
-p {
+#invalid {
     color: #CFB006;
     font-weight: 200;
     font-size: 100%;
