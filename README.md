@@ -356,7 +356,7 @@ However, immediately after the function had been executed, the sum would return 
 - The performance value sometimes varies.
 - The results were as follows when last checked-
 
-![The performance is amber at 80. Acessability is green at 91. Best practice is green scoring 96. SEA is green at 90.][lighthouse-results1]
+![The performance is amber at 87. Acessability is green at 91. Best practice is green scoring 100. SE0 is green at 90.][lighthouse]
 
 <h2 id="validation">Code Validation</h2>
 
@@ -385,6 +385,12 @@ I used the [Javascript validator](https://jshint.com/) to validate my Javascript
     - There were some functions where the variables were unidentified.
     - There were some syntax errors with regards to functions being called. 
 - All errors have been rectified and the javascript page now passes through the validator.
+
+- The metrics are as follows: 
+    - There are 25 functions in this file.
+    - Function with the largest signature take 1 arguments, while the median is 0.
+    - Largest function has 36 statements in it, while the median is 2.
+    - The most complex function has a cyclomatic complexity value of 7 while the median is 1.
 
 [Back to Contents](#contents)
 <hr>
@@ -439,5 +445,5 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
 [bust]: assets/images/screenshots/bust.png
 [setting-buttons]: assets/images/screenshots/settings-buttons.png
 [game-rules]: assets/images/screenshots/game-rules.png
-[lighthouse-results1]: assets/images/screenshots/lighthouse1.png
 [unfixed-bug]: assets/images/screenshots/unfixed-bug-screenshot.png
+[lighthouse]: assets/images/screenshots/lighthouse.png
