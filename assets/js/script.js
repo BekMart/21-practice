@@ -88,7 +88,6 @@ function startGame() {
         document.getElementById("player-hand").append(cardImg); //This places the selected cards on the table in players section
         playerCards.push(card); //Puts cards into an array
         playerSum += getPlayerValue(card); //Calculates the sum of the players cards
-        playShuffle(); // Plays audio of cards being shuffled/dealt
 
         //Displays players current score
         // Consider whether to change the ace to 1 opposed to 11(depending on score and whether player has an ace)
@@ -233,6 +232,7 @@ function deal() {
     buildDeck();
     shuffleDeck();
     startGame();
+    playShuffle(); // Plays audio of cards being shuffled/dealt
 
     //Allows player to click hit if card value is less than 21
     if (playerSum < 21) {
