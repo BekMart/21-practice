@@ -219,6 +219,10 @@ Where the font was sourced from.
 
 Playing cards favicon created by Vectorslab - Flaticon.
 
+## FontAwesome
+
+Icon used for 404 error page.
+
 ## Audacity
 
 Used to record and save sound clips from YouTube.
@@ -433,6 +437,7 @@ Visit the live website [here.](https://bekmart.github.io/21-practice/)
     - When the player [wins](https://www.youtube.com/watch?v=jRCJe4cXSd4).
     - When the player [loses or goes bust](https://www.youtube.com/watch?v=1ar7fqJXD50).
     - If the game ends as a [draw](https://www.youtube.com/watch?v=qYXKzyrtZK8).
+- [Font Awesome](https://fontawesome.com/icons/ban?f=classic&s=solid) was here I sources the ban icon from for the 404 error page. 
 
 [Back to Contents](#contents)
 <hr>
