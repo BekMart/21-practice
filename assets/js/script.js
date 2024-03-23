@@ -38,11 +38,12 @@ function buildDeck() {
                 id: cardID,
                 value: values[x],
                 type: types[i],
+                alt: (values[x] + "-" + types[i]), // This will generate alt text for each individual card
             };
             deck.push(card); // All card objects are pushed into the deck array
         }
     }
-    console.log(deck);
+    console.log(deck.altText);
     return deck;
 }
 
