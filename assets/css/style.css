@@ -10,8 +10,9 @@
 
 /* General styles */
 body {
-    min-height: 100vh;
     /* Generic project style */
+    /* Ensures that website occupies the whole height of the device screen */
+    min-height: 100vh;
     /* Background */
     background-image: url('../images/21-background.jpeg');
     background-position: center;
@@ -30,6 +31,7 @@ body {
 /* Page Title */
 h1 {
     color: #CFB006;
+    /* Text border */
     -webkit-text-stroke: 2px #C20202;
     font-weight: 300;
     font-size: 500%;
@@ -47,19 +49,22 @@ h1 {
 #opponent-score-area {
     background-color: rgba(0, 0, 0, 0.5);
     border: solid 4px #163904;
-    text-align: left;
-    /* Outline score text */
+    /* Text within section */
     color: #CFB006;
+    text-align: left;
 }
 
-/* Where the cards are dealt to for opponent and player (darker translucent box) */
+/* Where the cards are dealt to for opponent and player */
 #opponent-hand,
 #player-hand {
+    /* Set relative height and width for responsive design. Maximum restrictions for integrity */
     height: 25%;
     max-height: 200px;
     width: 85%;
     max-width: 750px;
+    /* Keep the section central */
     margin: auto;
+    /* Flex used so that card images can enter and will appear in the center */
     display: flex;
     justify-content: center;
 }
@@ -67,27 +72,35 @@ h1 {
 /* The cards */
 #opponent-hand img,
 #player-hand img {
+    /* Ensure that cards are vertically central to the parent div */
     align-items: center;
-    border-radius: 5%;
+    /* Space around each individual card image */
+    margin: 2%;
+    /* Set the width and height of the individual cards with maximum for integrity */
     width: auto;
     max-width: 150px;
     height: 5em;
     max-height: 200px;
-    margin: 2%;
+    /* Creates a small curve on the corners of the card images */
+    border-radius: 5%;
 }
 
 /* Player score area */
 #player-score-area {
     background-color: rgba(0, 0, 0, 0.5);
     border: solid 4px #163904;
-    text-align: right;
+    /* Text within area */
     color: #CFB006;
+    text-align: right;
 }
 
-/* Game buttons in center */
+/* Game buttons in center of game area */
 #game-controls {
+    /* Flex used to manipulate the buttons in different media queries*/
     display: flex;
+    /* Wrap means that buttons can occupy more than one line */
     flex-wrap: wrap;
+    /* Ensures that there is equal space around each button within this div */
     justify-content: space-around;
 }
 
@@ -100,13 +113,15 @@ button {
     color: #163904;
     /* Button */
     background-color: #CFB006;
+    border: solid 4px #163904;
+    /* Created curve around buttons */
+    border-radius: 35%;
+    /* Relative sizing with minimum restrictions so that text will always fit */
     height: 6vh;
     min-height: 40px;
     width: 10vw;
     min-width: 70px;
-    border: solid 4px #163904;
-    border-radius: 35%;
-    /* Spacing */
+    /* Spacing - This creates space on either side of the buttons to push them onto different lines*/
     margin: 0.5% 7% 0.5%;
     /* Positioning */
     align-self: center;
@@ -114,9 +129,11 @@ button {
 
 /* Buttons all change color - becoming inverted when they are hovered over */
 button:hover {
+    /* Button */
     background-color: #163904;
-    color: #CFB006;
     border: #CFB006 2px solid;
+    /* Text */
+    color: #CFB006;
 }
 
 /* Buttons depress when they are clicked */
@@ -128,23 +145,25 @@ button:active {
 #deal {
     /* Font */
     font-size: 1.25em;
-    /* Button */
+    /* Button - this is slightly larger than the others in this section */
     height: 1.8em;
     min-width: 120px;
     /* Positioning */
+    /* Ensures that deal button is above the other buttons on smaller devices */
     order: 1;
+    /* Ensures that there is a mminimum margin so that buttons are on separate lines */
     margin: 0 30% 0 30%;
 }
 
 /* Hit button */
 #hit {
-    /* Positioning */
+    /* Positioning - puts the hit button to the bottom left on smaller devices */
     order: 2;
 }
 
 /* Stay button */
 #stay {
-    /* Positioning */
+    /* Positioning - puts the stay button to the bottom right on smaller devices */
     order: 3;
 }
 
@@ -159,7 +178,7 @@ button:active {
 }
 
 /* Display of results as an animation */
-/* Results are displayed and change color and size as detailed below */
+/* Result text is displayed and changes color and size as detailed below */
 @keyframes result-display {
     from {
         color: rgba(22, 57, 4, 0);
@@ -174,10 +193,12 @@ button:active {
 }
 
 .animated {
+    /* Original style */
     color: rgba(22, 57, 4, 0);
     font-size: 1%;
-    /* Animation plays for 3secs and is linked to the above */
+    /* Animation is linked to the above keyframe */
     animation-name: result-display;
+    /* Animation plays for 3secs */
     animation-duration: 3s;
     /* Absolute positioning and set to display from the middle of the page */
     position: absolute;
@@ -256,7 +277,7 @@ button:active {
     position: relative;
 }
 
-/* The Close Button */
+/* The Close Button - 'x' in the top right corner of modal */
 .close {
     color: #163904;
     float: right;
@@ -265,6 +286,7 @@ button:active {
 }
 
 /* 404 Error page */
+/* Title text */
 h2,
 h3 {
     color: #CFB006;
@@ -281,7 +303,7 @@ i {
     padding-bottom: 30px;
 }
 
-/* Text */
+/* Text within modal */
 #invalid {
     color: #CFB006;
     font-weight: 200;
