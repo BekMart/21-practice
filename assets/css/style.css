@@ -16,7 +16,7 @@ body {
     background-image: url('../images/21-background.jpeg');
     background-position: center;
     background-size: cover;
-    background-color: #3d9516;
+    background-color: #226008;
     /* Font */
     font-family: 'Rye', 'sans-serif';
     font-size: large;
@@ -95,7 +95,7 @@ h1 {
 button {
     /* Font */
     font-family: 'Rye', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     font-size: .75em;
     color: #163904;
     /* Button */
