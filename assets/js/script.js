@@ -15,6 +15,8 @@ var deck;
 //Allows player to draw a card if playerSum < 21
 var canHit = true;
 
+let dealElement;
+
 //Functions that will automatically execute once page initially loads
 window.onload = function () {
     buildDeck();
@@ -91,15 +93,19 @@ function startGame() {
 
     //Add event listener for when control buttons are clicked
     document.getElementById("hit").addEventListener("click", hit); //Enables user to press hit
+    document.getElementById("hit").hidden = false; //Ensures that hit button is visible
     document.getElementById("stay").addEventListener("click", stay); //Enables user to press stay
+    document.getElementById("stay").hidden = false; //Ensures that stay button is visible
 
-    //Once game is set up, the deal button is disabled, until the user clicks stay
-    document.getElementById("deal").removeEventListener("click", deal);
+    //Once game is set up, the deal button is disabled, and removed, until the user clicks stay
+    document.getElementById("deal").removeEventListener("click", deal); //Deal button disabled
+    document.getElementById("deal").hidden = true; //Deal button hidden from page
 }
 
 //Function for when hit button is clicked
 function hit() {
     if (!canHit) { //You cannot use this function if playerSum is 21 >
+        document.getElementById("hit").hidden = true; //Hit button hidden
         return;
     }
 
@@ -121,7 +127,8 @@ function hit() {
         canHit = true;
         //If players score exceeds 21 then stay function will be triggered and BUST message displayed
     } else if (playerSum > 21) {
-        stay();
+        document.getElementById("hit").hidden = true; //Hit button hidden
+        stay(); //Trigger stay function
     }
 }
 
@@ -152,8 +159,9 @@ function stay() {
     //Displays oponents score
     document.getElementById("opponent-sum").innerText = opponentSum;
 
-    //Disables function to add additional cards
-    canHit = false;
+    //Disables hit function
+    canHit = false; //Disables function to add additional cards
+    document.getElementById("hit").hidden = true; //Hit button hidden
 
     //If statments used to determine who wins and display results
     if (playerSum > 21) { //If player score is greater than 21..
@@ -185,10 +193,12 @@ function stay() {
     }, 4000); //Sets a timer so that animation plays for 4000ms, then its removed to enable it to be triggered again next round
 
     //Enables user to click deal to deal a new hand
-    document.getElementById("deal").addEventListener("click", deal);
-
+    document.getElementById("deal").addEventListener("click", deal); //Deal button activated 
+    document.getElementById("deal").hidden = false; //Deal button reappears
+    
     //Disables user from clicking stay more than once as this will increment scores incorrectly
-    document.getElementById("stay").removeEventListener("click", stay);
+    document.getElementById("stay").removeEventListener("click", stay); //Stay function disabled
+    document.getElementById("stay").hidden = true; //Stay button hidden
 }
 
 //Function for when deal button is clicked

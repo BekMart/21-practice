@@ -94,16 +94,6 @@ h1 {
     text-align: right;
 }
 
-/* Game buttons in center of game area */
-#game-controls {
-    /* Flex used to manipulate the buttons in different media queries*/
-    display: flex;
-    /* Wrap means that buttons can occupy more than one line */
-    flex-wrap: wrap;
-    /* Ensures that there is equal space around each button within this div */
-    justify-content: space-around;
-}
-
 /* Button styling */
 button {
     /* Font */
@@ -122,7 +112,7 @@ button {
     width: 10vw;
     min-width: 70px;
     /* Spacing - This creates space on either side of the buttons to push them onto different lines*/
-    margin: 0.5% 7% 0.5%;
+    margin: 0.5% 5% 0.5%;
     /* Positioning */
     align-self: center;
 }
@@ -148,23 +138,6 @@ button:active {
     /* Button - this is slightly larger than the others in this section */
     height: 1.8em;
     min-width: 120px;
-    /* Positioning */
-    /* Ensures that deal button is above the other buttons on smaller devices */
-    order: 1;
-    /* Ensures that there is a mminimum margin so that buttons are on separate lines */
-    margin: 0 30% 0 30%;
-}
-
-/* Hit button */
-#hit {
-    /* Positioning - puts the hit button to the bottom left on smaller devices */
-    order: 2;
-}
-
-/* Stay button */
-#stay {
-    /* Positioning - puts the stay button to the bottom right on smaller devices */
-    order: 3;
 }
 
 /* Rules and reset buttons */
@@ -321,21 +294,6 @@ a {
     body {
         /* Larger font throughout */
         font-size: xx-large;
-    }
-
-    /* Disregard flex to adjust positioning of game controls */
-    #game-controls {
-        display: initial;
-    }
-
-    /* Return to initial spacing around deal button so they are next to eachother instead of in a column */
-    #deal {
-        margin: initial;
-    }
-
-    /* Ammend spacing around buttons */
-    button {
-        margin: 0.5% 5% 0.5%;
     }
 
 }
