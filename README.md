@@ -141,7 +141,7 @@ The website contains the following features:
 - The player is dealt two cards which are both displayed on their side of the table.
 - The total value of these cards is displayed in brackets where it says player score, to asisst them in making their decision on how to play the rest of the round.
 ![This is a mirror image of the opponent's side in terms of structure. However, both cards are visible, and the current player score is displayed in the score section to assist the user with their decision to either hit or stay.][player-side]
-- Once the cards are all dealt, the player is able to click either hit or stay which are located in the center of the game area. 
+- Once the cards are all dealt, the player can click either hit or stay which are in the center of the game area. 
 ![The gold with green font hit and stay buttons are horizontally aligned with a gap between them.][hit-stay]
 - When the user hovers over the buttons, the colours become inverted and once clicked the button depresses. 
 
@@ -305,8 +305,8 @@ All of the above functions have been tested through running the game and using t
     - When clicked they appear on the screen as a modal.
     - Each of the points is clear and concise so that the user can easily find and understand the rules to apply them to the game. 
 - I want to easily navigate around the page and play the game
-    - The webpage layout is simple and intuitive to use due to it only containing the absolutely necessary features and having a simple symmetrical layout.
-    - The buttons are all labeled clearly, and the game rules explain how and when to use them in simple terms. When buttons are deactivated they are temporarily removed from the screen.  
+    - The webpage layout is simple and intuitive to use due to it only containing the necessary features and having a simple symmetrical layout.
+    - The buttons are all labeled clearly, and the game rules explain how and when to use them in simple terms. When buttons are deactivated, they are temporarily removed from the screen.  
 - I want to be able to compete against the computer and know what my score is
     - The user's current score is always displayed on the screen to help them decide whether or not they want to get another card or stay with their hand. 
     - The opponent score is revealed once the round is over, so the user can see what their opponent had when they discover the results. 
