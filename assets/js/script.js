@@ -15,8 +15,6 @@ var deck;
 //Allows player to draw a card if playerSum < 21
 var canHit = true;
 
-let dealElement;
-
 //Functions that will automatically execute once page initially loads
 window.onload = function () {
     buildDeck();
@@ -195,7 +193,7 @@ function stay() {
     //Enables user to click deal to deal a new hand
     document.getElementById("deal").addEventListener("click", deal); //Deal button activated 
     document.getElementById("deal").hidden = false; //Deal button reappears
-    
+
     //Disables user from clicking stay more than once as this will increment scores incorrectly
     document.getElementById("stay").removeEventListener("click", stay); //Stay function disabled
     document.getElementById("stay").hidden = true; //Stay button hidden
