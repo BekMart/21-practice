@@ -19,43 +19,59 @@
 </head>
 
 <body>
+    <!-- Page title -->
     <h1>21</h1>
+    <!-- Where the animated game results are displayed from -->
     <p id="results"></p>
+    <!-- The whole game area -->
     <div id="game-area">
+        <!-- Opponents game area -->
         <div id="opponent-side">
+            <!-- Opponents score area -->
             <div id="opponent-score-area">
+                <!-- This is where the opponents current score is displayed, once the round is over -->
                 <p>Opponent score ( <span id="opponent-sum">?</span> )</p>
+                <!-- Here is a tally of how many games the opponent has won -->
                 <p>Games won: <span id="opponent-score">0</span></p>
             </div>
+            <!-- Where the opponents hands will be dealt to/displayed -->
             <div id="opponent-hand">
             </div>
         </div>
+        <!-- This is where the game control buttons are -->
         <div id="game-controls">
             <button aria-label="hit button" id="hit">Hit</button>
             <button aria-label="deal button" id="deal">Deal</button>
             <button aria-label="stay button" id="stay">Stay</button>
         </div>
+        <!-- Players game area begins here -->
         <div id="player-side">
+            <!-- This is where the players hand will be dealt to/displayed -->
             <div id="player-hand">
-
             </div>
+            <!-- Players score area -->
             <div id="player-score-area">
+                <!-- This will display the current score of the player throughout the game -->
                 <p>Player score ( <span id="player-sum">0</span> )</p>
+                <!-- A tally of how many games the player has won -->
                 <p>Games won: <span id="player-score">0</span></p>
             </div>
         </div>
     </div>
+    <!-- Section at the bottom of the page with some additional buttons -->
     <div id="settings">
-        <!-- Trigger/Open The Modal -->
+        <!-- Button to trigger/open the modal with the games rules -->
         <button aria-label="game rules button" id="game-rules">Game Rules</button>
         <!-- The Modal -->
         <div id="ruleModal" class="modal">
-
             <!-- Modal content -->
             <div class="modal-content">
+                <!-- Creates an 'x' for user to close modal -->
                 <span class="close">&times;</span>
-                <p>Rules:</p>
+                <!-- Title for modal -->
+                <h4>Rules:</h4>
                 <ul>
+                    <!-- Rule information -->
                     <li>Get a higher score than your opponent, without going over 21</li>
                     <li>Otherwise you will go bust and lose the hand automatically</li>
                     <li>Cards are valued the same as their number figure</li>
@@ -65,10 +81,11 @@
                     <li>Otherwise, click stay to reveal the winner</li>
                 </ul>
             </div>
-
         </div>
+        <!-- Reset game button -->
         <button aria-label="reset game button" id="restart-game">Restart Game</button>
     </div>
+    <!-- Link to javascript code -->
     <script src="assets/js/script.js"></script>
 </body>
 
