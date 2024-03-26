@@ -81,16 +81,6 @@ This website has been designed with a consistent layout to create a professional
 
 ![The game is made up of three main sections. The title at the top. The game area in the center which includes each player's scores, the cards in their hands, with the control buttons separating them in the center. The settings buttons are at the bottom.][structure]
 
-- The background image is always in the center of the screen. 
-    - On mobile devices, less of it is visible, maintaining its integrity.
-    - On larger devices it occupies the whole screen. 
-- The title of the page is always at the top, in the center and has a strong contrast to the background, making it bold and striking.
-- There is an area which displays the opponent's current score and winning tally at the top of the game area, which is mirrored at the bottom for the user.
-- The cards are dealt to each player adjacent to where their scores are displayed, symmetrically and separated by the game control buttons.
-- The game control buttons change throughout the game depending on which ones are currently active, but are always in the center of the game area.
-- The settings buttons at the bottom of the page align vertically on smaller devices and horizontally on larger screens.
-- The game rules appear as a modal when the button is clicked. 
-
 <h2 id="surface">Surface</h2>
 
 ### Colours
@@ -132,53 +122,40 @@ This website consists of one page which hosts the game itself and a 404-error pa
 
 The website contains the following features:
 
-### Start the game
+### Background 
 
-- When the page loads, the cards are created into a deck and shuffled, before being dealt out to start the game. There is a sound associated with the cards being dealt out. 
-- The opponent is dealt two cards but only one of them is visible to the user as the first card just shows the reverse side. 
-- The opponent's score remains unknown, displaying just a question mark until the user ends the round. 
+- The background image is always in the center of the screen. It is a textured image of a BlackJack table with the suits displayed in the center in a lighter shade of green, giving the user the feeling of being at a Blackjack table.  
+
+### Title
+
+- The title of the page introduces the user to the game and is always at the top, in the center. It has a strong contrast to the background, making it bold and striking.
+![The title is gold with a red outline on a green poker table background so it is very striking. The font is large and bold in Rye which is a circus style font.][title]
+
+### Game area
+
+- The game area hosts everything needed to play the game. This includes the scores, both contestant's cards, and the buttons that the user needs to play. 
+![This image shows the entire game area, which consists of the opponent section on the top and the player section mirrored at the bottom, separated by the game control buttons.][game-area]
+
+### Opponent section
+
+- At the top of the game area is the opponent's current score and winning tally, which is at the top of their section. 
+- The cards are dealt to the opponent underneath where their scores are displayed.
 ![The opponent score area is at the top of this section set darker, to enhance the gold font which displays a question mark for opponent score and games won tally. Underneath this are the opponent's cards. The first of which is hidden, just showing the back of the card, whilst the second is revealed.][opponents-side]
-- The player is dealt two cards which are both displayed on their side of the table.
-- The total value of these cards is displayed in brackets where it says player score, to asisst them in making their decision on how to play the rest of the round.
-![This is a mirror image of the opponent's side in terms of structure. However, both cards are visible, and the current player score is displayed in the score section to assist the user with their decision to either hit or stay.][player-side]
-- Once the cards are all dealt, the player can click either hit or stay which are in the center of the game area. 
+
+### Game control buttons 
+
+- The game control buttons change throughout the game depending on which ones are currently active but are always in the center of the game area, separating the two contestant's sections.
 ![The gold with green font hit and stay buttons are horizontally aligned with a gap between them.][hit-stay]
-- When the user hovers over the buttons, the colours become inverted and once clicked the button depresses. 
+![The game controls section now only hosts a deal button in the center as this is the only available button to press at this point in the game.][deal]
 
-### Hit
+### Player section
 
-- The user can click the hit button whilst their total score is 21 or below. 
-- This will extract another card from the deck and display it with the other cards in their hand.
-- There is a sound effect for dealing a single card to the player. 
-- The value of the additional card is added to their current score and displayed on screen. 
+- The player section is a mirrored image of the opponent's section and is symmetrical to give the website a professional feel.
+![This is a mirror image of the opponent's side in terms of structure. However, both cards are visible, and the current player score is displayed in the score section to assist the user with their decision to either hit or stay.][player-side]
 
-### Special ace card
+### Settings buttons
 
-- There is a function that allows the ace to reduce from the value of 11 to 1 if the player has one in their hand and their score exceeds 21. 
-
-### Stay
-
-- The user clicks stay if they are happy with their score and want to end the round. 
-- The opponent will pick up additional cards until their score is 17 or above. These additional cards will be sourced from the shuffled pack and placed alongside the other cards in their hand which will now all be revealed along with their score total.
-- At this point the stay and hit buttons are deactivated and will disappear from the screen, whilst the deal button is reactivated and appears in the center of the screen. 
-![The game controls section now only hosts a deal button as this is the only available button to press at this point in the game.][deal]
-- The result will then be announced.
-
-### Results 
-
-- Depending on each player's score, the results will appear in the middle of the screen as animated text with an associated sound effect to reveal who has won.
-- The tally of games won will then be increased depending on who the winner of the round is. 
-- If the user draws a card that makes their score exceed 21 then the round will automatically end, and the result will display bust. The opponent will win this round regardless of their total score. 
-![The opponent's cards are all now revealed as is their associated score. Their games won has been increased also as they have won this round. Bust is being displayed in red bold font in the middle of the screen to declare the result.][bust]
-
-### Deal
-
-- The user can then press the deal button which will shuffle a new deck and deal a new set of cards, whilst keeping a tally of who has won the previous rounds. 
-- Once the deal button has been clicked, it will become hidden and the hit and stay buttons will reappear as they are now available to use again. 
-
-### Reset game
-
-- There is a button at the bottom of the page to reset the entire game if the user wants to clear the previous game scores and restart.
+- The settings buttons at the bottom of the page align vertically on smaller devices and horizontally on larger screens.
 ![At the bottom of the page, underneath the game area are two buttons which are labelled Game Rules and Restart game.][setting-buttons]
 
 ### Game rules
@@ -246,24 +223,49 @@ AI used to assist me in debugging elements in my code.
  
 - I can confirm that all the functions work as expected: 
 
-    - When the game starts or the deal button is selected, a new deck of 52 cards is created in order and then randomly shuffled before dealing the cards to each of the players. At this point, the deal button is hidden from the screen as it is deactivated.  
-    - Two cards are dealt to the opponent, with one face down and two cards are dealt to the player. 
-    - When the hit button is activated, the player is dealt an additional card, which appears in their hand.
-    - The player score is calculated and displayed throughout the duration of the game. There is a function which calculates this based on the card selected and the value that it holds. 
-    - There is a function that will automatically calculate the value of an ace as 1 instead of 11 if the score of either player exceeds 21 and they have an ace in their hand.
-    - If the player score exceeds 21 then the game will automatically end and the "BUST!" message will be displayed, meaning that the opponent has won, regardless of their score. 
-    - Once the stay button is clicked, the round is over. The hit and stay buttons are disabled and disappear whilst the deal button is reactivated and appears in their place. 
-    - The opponent's hidden card is then revealed along with any other cards that the opponent has in their hand. 
-    - The opponent will pick up additional cards whilst their score is below 17.
-    - The opponent score is revealed after the stay button has been activated and all their cards have been revealed.
-    - There is a function to record who won the round and increment their games won tally to show how many rounds have been won by each contestant. 
-    - Once the scores are calculated and revealed an animated message is displayed in the middle of the screen which grows from the center and disappears after 3 seconds. 
-    - Audio effects are played at certain points throughout the game:
-        - When the cards are dealt.
-        - When the results are being displayed. 
-    - When the user hovers over any of the buttons, the colours are inverted and the button depresses when they click on it.
-    - When the Game Rules button is clicked, the rules of the game are displayed in a modal. The user can either click on the x in the corner or anywhere else on the screen to escape and return to the game. 
-    - There is a button to restart the game. This will wipe clean any previous scores and tallies that have been accrued and set up a new game.
+### Start the game
+
+- When the page loads, the cards are created into a deck and shuffled, before being dealt out to start the game. There is a sound associated with the cards being dealt and once complete, the deal button is hidden as it is deactivated. 
+- The opponent is dealt two cards but only one of them is visible to the user as the first card just shows the reverse side. 
+- The opponent's score remains unknown, displaying just a question mark until the user ends the round. 
+- The player is dealt two cards which are both displayed on their side of the table.
+- The total value of these cards is displayed in brackets where it says player score, to assist them in making their decision on how to play the rest of the round.
+- Once the cards are all dealt, the player can click either hit or stay which are in the center of the game area. 
+- When the user hovers over the buttons, the colours become inverted and once clicked the button depresses. 
+
+### Hit
+
+- The user can click the hit button whilst their total score is 21 or below. 
+- This will extract another card from the deck and display it with the other cards in their hand.
+- There is a sound effect for dealing a single card to the player. 
+- The value of the additional card is added to their current score and displayed on screen. 
+
+### Stay
+
+- The user clicks stay if they are happy with their score and want to end the round. 
+- The opponent will pick up additional cards until their score is 17 or above. These additional cards will be sourced from the shuffled pack and placed alongside the other cards in their hand which will now all be revealed along with their score total.
+- At this point the stay and hit buttons are deactivated and will disappear from the screen, whilst the deal button is reactivated and returns to the center. 
+- The result will then be announced.
+
+### Special ace card
+
+- There is a function that allows the ace to reduce from the value of 11 to 1 if the player has one in their hand and their score exceeds 21. 
+
+### Results 
+
+- Depending on each player's score, the results will appear in the middle of the screen as animated text with an associated sound effect to reveal who has won.
+- The tally of games won will then be increased depending on who the winner of the round is. 
+- If the user draws a card that makes their score exceed 21 then the round will automatically end, and the result will display bust. The opponent will win this round regardless of their total score. 
+![The opponent's cards are all now revealed as is their associated score. Their games won has increased also as they have won this round. Bust is being displayed in red bold font in the middle of the screen to declare the result.][bust]
+
+### Deal
+
+- The user can then press the deal button which will shuffle a new deck and deal a new set of cards, whilst keeping a tally of who has won the previous rounds. 
+- Once the deal button has been clicked, it will become hidden and the hit and stay buttons will reappear as they are now available to use again. 
+
+### Reset game
+
+- There is a button at the bottom of the page to reset the entire game if the user wants to clear the previous game scores and restart.
 
 All of the above functions have been tested through running the game and using the console log on DevTools to ensure that everything is behaving the way that it ought to be.  
 
@@ -342,7 +344,6 @@ All of the above functions have been tested through running the game and using t
     - However, immediately after the function had been executed, the sum would return to its prior value. 
 - I contacted Code Institute Tutor Support again about this issue and they advised me to remove the sum argument from the parenthesis in the adjustScore function as it was returning to the global variable value immediately after the function had been completed, rather than updating it. 
     - After actioning this advice, the issue with the sum reducing globally was solved and the function returned all the desired values. 
-
 - I returned to adjust these functions later on, because I realised if the contestants were dealt two aces at the start of the game, these weren't accounted for, as they were recorded as boolean values instead of numerical.  
     - I changed the variables for both opponent and player from HasAce to AceCount to record a number of aces that were present instead of true or false values.
     - This now works perfectly and all functions work together as intended.  
@@ -456,13 +457,15 @@ JavaScript code for the majority of the structure and functionality and added ot
 
 [responsive]: assets/images/screenshots/responsive.png
 [structure]: assets/images/screenshots/21-screenshot.png
+[title]: assets/images/screenshots/title.png
+[game-area]: assets/images/screenshots/game-area.png
 [opponents-side]: assets/images/screenshots/opponent-side.png
-[player-side]: assets/images/screenshots/player-side.png
 [hit-stay]: assets/images/screenshots/hit-stay.png
 [deal]: assets/images/screenshots/deal.png
-[bust]: assets/images/screenshots/bust.png
+[player-side]: assets/images/screenshots/player-side.png
 [setting-buttons]: assets/images/screenshots/settings-buttons.png
 [game-rules]: assets/images/screenshots/game-rules.png
 [404]: assets/images/screenshots/404.png
+[bust]: assets/images/screenshots/bust.png
 [unfixed-bug]: assets/images/screenshots/unfixed-bug-screenshot.png
 [lighthouse]: assets/images/screenshots/lighthouse.png
